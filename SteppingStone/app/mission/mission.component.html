@@ -1,0 +1,14 @@
+﻿<div class="card">
+    <div class="card-header">
+        {{pageTitle}} 
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <div *ngFor="let mission of missions">
+                <div>Id:  {{mission.Id}}</div>
+                <div>Title:  {{mission.Title}}</div>
+                <div>Description:  {{mission.Description}}</div>
+            </div>
+        </div>
+    </div>
+</div>

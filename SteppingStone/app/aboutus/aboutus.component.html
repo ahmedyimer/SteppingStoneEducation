@@ -1,0 +1,14 @@
+﻿<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <div *ngFor="let about of aboutus">
+                <div>Id:  {{about.Id}}</div>
+                <div>Title:  {{about.Title}}</div>
+                <div>Description:  {{about.Description}}</div>
+            </div>
+        </div>
+    </div>
+</div>
