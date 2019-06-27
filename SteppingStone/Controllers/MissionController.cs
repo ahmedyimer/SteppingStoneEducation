@@ -63,6 +63,18 @@ namespace SteppingStone.Controllers
         }
 
 
+        [HttpPost]
+        [Route("api/Mission/DeleteMission1")]
+        public IHttpActionResult DeleteMission1(int Id)
+        {
+            Mission mission = new Mission();
+
+            var missionservice = new MissionService();
+            missionservice.DeleteMission(Id);
+
+            return Ok(mission);
+        }
+
 
 
 

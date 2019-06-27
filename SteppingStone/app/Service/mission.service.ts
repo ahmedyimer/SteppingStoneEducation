@@ -58,6 +58,16 @@ export class MissionService {
             .catch(this.handleError);
     }
 
+    DeleteMission1(url: string, Id: number): Observable<any> {
+        debugger;
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers, params: { Id: Id } });
+        return this.http.post(url, null, options)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         debugger;
         console.error(error);

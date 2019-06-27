@@ -7,4 +7,5 @@
     public static BASE_UPDATE_MISSION_ENDPOINT = 'api/Mission/UpdateMission';
     public static BASE_ADD_MISSION_ENDPOINT = 'api/Mission/AddMission';
     public static BASE_DELETE_MISSION_ENDPOINT = 'api/Mission/DeleteMission';
+    public static BASE_DELETE_MISSION_ENDPOINT1 = 'api/Mission/DeleteMission1';
 }

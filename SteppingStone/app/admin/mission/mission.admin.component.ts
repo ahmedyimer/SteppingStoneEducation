@@ -134,7 +134,8 @@ export class MissionAdminComponent implements OnInit {
                 break;
 
             case DBOperation.delete:
-                this.missionService.DeleteMission(Global.BASE_DELETE_MISSION_ENDPOINT, formData._value).subscribe(
+                //this.missionService.DeleteMission(Global.BASE_DELETE_MISSION_ENDPOINT, formData._value).subscribe(
+                this.missionService.DeleteMission1(Global.BASE_DELETE_MISSION_ENDPOINT1, formData._value.Id).subscribe(
                     data => {
                         console.log(data);
                         // if (data == 'ok') //Success
