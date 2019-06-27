@@ -27,7 +27,25 @@ var MissionService = (function () {
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
+    MissionService.prototype.AddMission = function (url, model) {
+        debugger;
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     MissionService.prototype.UpdateMission = function (url, model) {
+        debugger;
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    MissionService.prototype.DeleteMission = function (url, model) {
         debugger;
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });

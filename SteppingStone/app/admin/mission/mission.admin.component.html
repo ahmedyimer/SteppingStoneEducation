@@ -35,7 +35,7 @@
                     <tr *ngFor="let mission of missions">
                         <td>{{mission.Id}}</td>
                         <td>{{mission.Title}}</td>
-                        <td>{{mission.Description}}</td>
+                        <td><div [innerHtml]="mission.Description"></div></td>
                         <td>
                             <button title="Edit" class="btn btn-primary" (click)="editMission(mission.Id)">Edit</button>
                             <button title="Delete" class="btn btn-danger" (click)="deleteMission(mission.Id)">Delete</button>
@@ -52,9 +52,6 @@
             <span class="sr-only">Error:</span>
             {{msg}}
         </div>
-        <div>
-            {{msg}}
-        </div>
     </div>
 </div>
 
@@ -66,10 +63,10 @@
         <modal-body>
 
             <div class="form-group">
-                <div>
+                <!--<div style="visibility:hidden">
                     <span>ID*</span>
                     <input type="text" class="form-control" placeholder="Id" formControlName="Id">
-                </div>
+                </div>-->
                 <div>
                     <span>Title*</span>
                     <input type="text" class="form-control" placeholder="Title" formControlName="Title">

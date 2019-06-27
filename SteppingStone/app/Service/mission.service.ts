@@ -25,7 +25,29 @@ export class MissionService {
             .catch(this.handleError);
     }
 
+    AddMission(url: string, model: any): Observable<any> {
+        debugger;
+
+        let body = JSON.stringify(model);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
     UpdateMission(url: string, model: any): Observable<any> {
+        debugger;
+
+        let body = JSON.stringify(model);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
+    DeleteMission(url: string, model: any): Observable<any> {
         debugger;
 
         let body = JSON.stringify(model);

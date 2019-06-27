@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { MissionService } from '../../Service/mission.service';
 import { IMission} from '../../model/mission';
 import { Global } from '../../Shared/global';
-
+import { DBOperation } from '../../Shared/enum';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -26,6 +26,7 @@ export class MissionAdminComponent implements OnInit {
     modalTitle: string;
     modalBtnTitle: string;
     missionFrm: FormGroup;
+    dbops: DBOperation;
 
     constructor(private fb: FormBuilder, private missionService: MissionService) {
 
@@ -56,7 +57,7 @@ export class MissionAdminComponent implements OnInit {
     }
 
     addMission() {
-        //this.dbops = DBOperation.create;
+        this.dbops = DBOperation.create;
         this.SetControlsState(true);
         this.modalTitle = "Add New Mission";
         this.modalBtnTitle = "Add";
@@ -67,7 +68,7 @@ export class MissionAdminComponent implements OnInit {
 
     editMission(id: number) {
         debugger;
-        //this.dbops = DBOperation.update;
+        this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Mission";
         this.modalBtnTitle = "Update";
@@ -77,7 +78,7 @@ export class MissionAdminComponent implements OnInit {
     }
 
     deleteMission(id: number) {
-        //this.dbops = DBOperation.delete;
+        this.dbops = DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
@@ -88,86 +89,71 @@ export class MissionAdminComponent implements OnInit {
 
     onSubmit(formData: any) {
         this.msg = "";
-
-        this.missionService.UpdateMission(Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(
-            data => {
-                console.log(data);
-               // if (data == 'ok') //Success
-                if (data.Id == 0) //Success
-                {
-                    this.msg = "Data successfully added.";
-                    this.getMissionData();
-                }
-                else {
-                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-                }
-                this.modal.dismiss();
+        debugger;
+        switch (this.dbops) {
+            case DBOperation.create:
+                this.missionService.AddMission(Global.BASE_ADD_MISSION_ENDPOINT, formData._value).subscribe(
+                    data => {
+                        console.log(data);
+                        // if (data == 'ok') //Success
+                        if (data.Id == 0) //Success
+                        {
+                            this.msg = "Data successfully added.";
+                            this.getMissionData();
+                        }
+                        else {
+                            this.msg = "There is some issue in creating record, please contact to system administrator!"
+                        }
+                        this.modal.dismiss();
                     },
                     error => {
                         this.msg = error;
                     }
                 );
+                break;
 
-        //switch (this.dbops) {
-        //    case DBOperation.create:
-        //        this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
-        //            data => {
-        //                if (data == 1) //Success
-        //                {
-        //                    this.msg = "Data successfully added.";
-        //                    this.LoadUsers();
-        //                }
-        //                else {
-        //                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-        //                }
+            case DBOperation.update:
+                this.missionService.UpdateMission(Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(
+                    data => {
+                        console.log(data);
+                        // if (data == 'ok') //Success
+                        if (data.Id == 0) //Success
+                        {
+                            this.msg = "Data successfully updated.";
+                            this.getMissionData();
+                        }
+                        else {
+                            this.msg = "There is some issue in saving records, please contact to system administrator!"
+                        }
+                        this.modal.dismiss();
+                    },
+                    error => {
+                        this.msg = error;
+                    }
+                );
+                break;
 
-        //                this.modal.dismiss();
-        //            },
-        //            error => {
-        //                this.msg = error;
-        //            }
-        //        );
-        //        break;
-        //    case DBOperation.update:
-        //        this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
-        //            data => {
-        //                if (data == 1) //Success
-        //                {
-        //                    this.msg = "Data successfully updated.";
-        //                    this.LoadUsers();
-        //                }
-        //                else {
-        //                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-        //                }
-
-        //                this.modal.dismiss();
-        //            },
-        //            error => {
-        //                this.msg = error;
-        //            }
-        //        );
-        //        break;
-        //    case DBOperation.delete:
-        //        this._userService.delete(Global.BASE_USER_ENDPOINT, formData._value.Id).subscribe(
-        //            data => {
-        //                if (data == 1) //Success
-        //                {
-        //                    this.msg = "Data successfully deleted.";
-        //                    this.LoadUsers();
-        //                }
-        //                else {
-        //                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-        //                }
-
-        //                this.modal.dismiss();
-        //            },
-        //            error => {
-        //                this.msg = error;
-        //            }
-        //        );
-        //        break;
-
-       // }
+            case DBOperation.delete:
+                this.missionService.DeleteMission(Global.BASE_DELETE_MISSION_ENDPOINT, formData._value).subscribe(
+                    data => {
+                        console.log(data);
+                        // if (data == 'ok') //Success
+                        if (data.Id == 0) //Success
+                        {
+                            this.msg = "Data successfully deleted.";
+                            this.getMissionData();
+                        }
+                        else {
+                            this.msg = "There is some issue in deleting a record, please contact to system administrator!"
+                        }
+                        this.modal.dismiss();
+                    },
+                    error => {
+                        this.msg = error;
+                    }
+                );
+               break;
+        }
     }
 
     SetControlsState(isEnable: boolean) {

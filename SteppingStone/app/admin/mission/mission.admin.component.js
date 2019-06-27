@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var mission_service_1 = require("../../Service/mission.service");
 var global_1 = require("../../Shared/global");
+var enum_1 = require("../../Shared/enum");
 var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var forms_1 = require("@angular/forms");
 var MissionAdminComponent = (function () {
@@ -37,7 +38,7 @@ var MissionAdminComponent = (function () {
         }, function (error) { return _this.msg = error; });
     };
     MissionAdminComponent.prototype.addMission = function () {
-        //this.dbops = DBOperation.create;
+        this.dbops = enum_1.DBOperation.create;
         this.SetControlsState(true);
         this.modalTitle = "Add New Mission";
         this.modalBtnTitle = "Add";
@@ -46,7 +47,7 @@ var MissionAdminComponent = (function () {
     };
     MissionAdminComponent.prototype.editMission = function (id) {
         debugger;
-        //this.dbops = DBOperation.update;
+        this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Mission";
         this.modalBtnTitle = "Update";
@@ -55,7 +56,7 @@ var MissionAdminComponent = (function () {
         this.modal.open();
     };
     MissionAdminComponent.prototype.deleteMission = function (id) {
-        //this.dbops = DBOperation.delete;
+        this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
@@ -66,76 +67,57 @@ var MissionAdminComponent = (function () {
     MissionAdminComponent.prototype.onSubmit = function (formData) {
         var _this = this;
         this.msg = "";
-        this.missionService.UpdateMission(global_1.Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
-            console.log(data);
-            // if (data == 'ok') //Success
-            if (data.Id == 0) {
-                _this.msg = "Data successfully added.";
-                _this.getMissionData();
-            }
-            else {
-                _this.msg = "There is some issue in saving records, please contact to system administrator!";
-            }
-            _this.modal.dismiss();
-        }, function (error) {
-            _this.msg = error;
-        });
-        //switch (this.dbops) {
-        //    case DBOperation.create:
-        //        this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
-        //            data => {
-        //                if (data == 1) //Success
-        //                {
-        //                    this.msg = "Data successfully added.";
-        //                    this.LoadUsers();
-        //                }
-        //                else {
-        //                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-        //                }
-        //                this.modal.dismiss();
-        //            },
-        //            error => {
-        //                this.msg = error;
-        //            }
-        //        );
-        //        break;
-        //    case DBOperation.update:
-        //        this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
-        //            data => {
-        //                if (data == 1) //Success
-        //                {
-        //                    this.msg = "Data successfully updated.";
-        //                    this.LoadUsers();
-        //                }
-        //                else {
-        //                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-        //                }
-        //                this.modal.dismiss();
-        //            },
-        //            error => {
-        //                this.msg = error;
-        //            }
-        //        );
-        //        break;
-        //    case DBOperation.delete:
-        //        this._userService.delete(Global.BASE_USER_ENDPOINT, formData._value.Id).subscribe(
-        //            data => {
-        //                if (data == 1) //Success
-        //                {
-        //                    this.msg = "Data successfully deleted.";
-        //                    this.LoadUsers();
-        //                }
-        //                else {
-        //                    this.msg = "There is some issue in saving records, please contact to system administrator!"
-        //                }
-        //                this.modal.dismiss();
-        //            },
-        //            error => {
-        //                this.msg = error;
-        //            }
-        //        );
-        //        break;
-        // }
+        debugger;
+        switch (this.dbops) {
+            case enum_1.DBOperation.create:
+                this.missionService.AddMission(global_1.Global.BASE_ADD_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
+                    console.log(data);
+                    // if (data == 'ok') //Success
+                    if (data.Id == 0) {
+                        _this.msg = "Data successfully added.";
+                        _this.getMissionData();
+                    }
+                    else {
+                        _this.msg = "There is some issue in creating record, please contact to system administrator!";
+                    }
+                    _this.modal.dismiss();
+                }, function (error) {
+                    _this.msg = error;
+                });
+                break;
+            case enum_1.DBOperation.update:
+                this.missionService.UpdateMission(global_1.Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
+                    console.log(data);
+                    // if (data == 'ok') //Success
+                    if (data.Id == 0) {
+                        _this.msg = "Data successfully updated.";
+                        _this.getMissionData();
+                    }
+                    else {
+                        _this.msg = "There is some issue in saving records, please contact to system administrator!";
+                    }
+                    _this.modal.dismiss();
+                }, function (error) {
+                    _this.msg = error;
+                });
+                break;
+            case enum_1.DBOperation.delete:
+                this.missionService.DeleteMission(global_1.Global.BASE_DELETE_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
+                    console.log(data);
+                    // if (data == 'ok') //Success
+                    if (data.Id == 0) {
+                        _this.msg = "Data successfully deleted.";
+                        _this.getMissionData();
+                    }
+                    else {
+                        _this.msg = "There is some issue in deleting a record, please contact to system administrator!";
+                    }
+                    _this.modal.dismiss();
+                }, function (error) {
+                    _this.msg = error;
+                });
+                break;
+        }
     };
     MissionAdminComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.missionFrm.enable() : this.missionFrm.disable();

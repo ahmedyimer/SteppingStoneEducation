@@ -47,6 +47,30 @@ namespace SteppingStone.Data
             return tbl;
         }
 
+        public void AddMission(Mission value)
+        {
+            System.Data.SqlClient.SqlCommand cmdSQL = null;
+            System.Data.SqlClient.SqlConnection cnSQL = null;
+
+            string ConnString = System.Configuration.ConfigurationManager.ConnectionStrings["SteppingStoneDB"].ConnectionString;
+
+            try
+            {
+                cnSQL = new System.Data.SqlClient.SqlConnection(ConnString);
+                cnSQL.Open();
+                cmdSQL = new System.Data.SqlClient.SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.Text;
+
+                cmdSQL.CommandText = String.Format("INSERT INTO Mission (Title, Description) VALUES ('{0}', '{1}')", value.Title, value.Description);
+                cmdSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         public void UpdateMission(Mission value)
         {
             System.Data.SqlClient.SqlCommand cmdSQL = null;
@@ -63,6 +87,30 @@ namespace SteppingStone.Data
                 cmdSQL.CommandType = CommandType.Text;
 
                 cmdSQL.CommandText = String.Format("UPDATE Mission SET Title = '{0}', Description = '{1}' where Id = {2}", value.Title, value.Description, value.Id);
+                cmdSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void DeleteMission(int Id)
+        {
+            System.Data.SqlClient.SqlCommand cmdSQL = null;
+            System.Data.SqlClient.SqlConnection cnSQL = null;
+
+            string ConnString = System.Configuration.ConfigurationManager.ConnectionStrings["SteppingStoneDB"].ConnectionString;
+
+            try
+            {
+                cnSQL = new System.Data.SqlClient.SqlConnection(ConnString);
+                cnSQL.Open();
+                cmdSQL = new System.Data.SqlClient.SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.Text;
+
+                cmdSQL.CommandText = String.Format("DELETE Mission WHERE Id = '{0}'", Id);
                 cmdSQL.ExecuteNonQuery();
             }
             catch (Exception ex)

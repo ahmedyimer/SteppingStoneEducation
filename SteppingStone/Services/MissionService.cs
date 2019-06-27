@@ -37,15 +37,41 @@ namespace SteppingStone.Services
 
         }
 
-        public void UpdateMission(Mission value)
+        public void AddMission(Mission mission)
         {
-            Mission mission = new Mission();
-            DataTable dt = new DataTable();
             MissionData missionData = new MissionData();
 
             try
             {
-                missionData.UpdateMission(value);
+                missionData.AddMission(mission);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void UpdateMission(Mission mission)
+        {
+            MissionData missionData = new MissionData();
+
+            try
+            {
+                missionData.UpdateMission(mission);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void DeleteMission(int Id)
+        {
+            MissionData missionData = new MissionData();
+
+            try
+            {
+                missionData.DeleteMission(Id);
             }
             catch (Exception ex)
             {

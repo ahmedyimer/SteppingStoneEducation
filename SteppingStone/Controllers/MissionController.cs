@@ -27,6 +27,18 @@ namespace SteppingStone.Controllers
         }
 
         [HttpPost]
+        [Route("api/Mission/AddMission")]
+        public IHttpActionResult AddMission([FromBody]Mission value)
+        {
+            Mission mission = new Mission();
+
+            var missionservice = new MissionService();
+            missionservice.AddMission(value);
+
+            return Ok(mission);
+        }
+
+        [HttpPost]
         [Route("api/Mission/UpdateMission")]
         public IHttpActionResult UpdateMission([FromBody]Mission value)
         {
@@ -37,6 +49,28 @@ namespace SteppingStone.Controllers
 
             return Ok(mission); 
         }
+
+        [HttpPost]
+        [Route("api/Mission/DeleteMission")]
+        public IHttpActionResult DeleteMission([FromBody]Mission value)
+        {
+            Mission mission = new Mission();
+
+            var missionservice = new MissionService();
+            missionservice.DeleteMission(value.Id);
+
+            return Ok(mission);
+        }
+
+
+
+
+
+
+
+
+
+
 
 
         // GET: api/Mission/5
