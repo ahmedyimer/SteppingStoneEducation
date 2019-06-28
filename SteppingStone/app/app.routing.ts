@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component'
 import { MissionComponent } from './mission/mission.component'
 import { ProjectComponent } from './project/project.component'
 import { MissionAdminComponent } from './admin/mission/mission.admin.component'
+import { ProjectAdminComponent } from './admin/project/project.admin.component'
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const appRoutes: Routes = [
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'mission', component: MissionComponent },
     { path: 'project', component: ProjectComponent },
-    { path: 'missionadmin', component: MissionAdminComponent }
+    { path: 'missionadmin', component: MissionAdminComponent },
+    { path: 'projectadmin', component: ProjectAdminComponent }
 ];
 
 export const routing: ModuleWithProviders =

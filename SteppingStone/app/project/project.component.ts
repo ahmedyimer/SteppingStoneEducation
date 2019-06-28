@@ -6,14 +6,14 @@ import { Global } from '../Shared/global';
 
 @Component({
     moduleId: module.id,
-    //selector: 'mission',
+    //selector: 'project',
     templateUrl: './project.component.html'
 })
 export class ProjectComponent implements OnInit {
     public pageTitle = 'Project';
     msg: string;
 
-    project: IProject[];
+    projects: IProject[];
     indLoading: boolean = false;
 
     constructor(private projectService: ProjectService) {
@@ -26,10 +26,10 @@ export class ProjectComponent implements OnInit {
 
     getProjectData() : void {
 
-        this.projectService.getProjects(Global.BASE_MISSION_ENDPOINT)
+        this.projectService.getProjects(Global.BASE_PROJECT_ENDPOINT)
             .subscribe((data) => {
                 console.log("getProjectData from project.component: " + JSON.stringify(data));
-                this.project = data;
+                this.projects = data;
             },
             error => this.msg = <any>error);
     }

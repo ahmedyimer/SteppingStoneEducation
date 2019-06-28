@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit, ViewChild} from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { MissionService } from '../../Service/mission.service';
-import { IMission} from '../../model/mission';
+import { ProjectService } from '../../Service/project.service';
+import { IProject} from '../../model/project';
 import { Global } from '../../Shared/global';
 import { DBOperation } from '../../Shared/enum';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
@@ -9,46 +9,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     moduleId: module.id,
-    //selector: 'mission',
-    templateUrl: './mission.admin.component.html'
+    //selector: 'project',
+    templateUrl: './project.admin.component.html'
 })
-export class MissionAdminComponent implements OnInit {
+export class ProjectAdminComponent implements OnInit {
     @ViewChild('modal') modal: ModalComponent;
-    public pageTitle = 'Mission';
+    public pageTitle = 'Project';
     errorMessage: any;
     msg: string;
 
-    missions: IMission[];
-    mission: IMission;
+    projects: IProject[];
+    project: IProject;
 
     indLoading: boolean = false;
 
     modalTitle: string;
     modalBtnTitle: string;
-    missionFrm: FormGroup;
+    projectFrm: FormGroup;
     dbops: DBOperation;
 
-    constructor(private fb: FormBuilder, private missionService: MissionService) {
+    constructor(private fb: FormBuilder, private projectService: ProjectService) {
 
     }
 
     ngOnInit(): void {
 
-        this.missionFrm = this.fb.group({
+        this.projectFrm = this.fb.group({
             Id: [''],
             Title: ['', Validators.required],
             Description: ['', Validators.required]
         });
 
-        this.getMissionData();
+        this.getProjectData();
     }
 
-    getMissionData() : void {
+    getProjectData() : void {
 
-        this.missionService.getMission(Global.BASE_MISSION_ENDPOINT)
+        this.projectService.getProjects(Global.BASE_PROJECT_ENDPOINT)
             .subscribe((data) => {
-                console.log("getMissionData from mission.admin.component: " + JSON.stringify(data));
-                this.missions = data;
+                console.log("getProjectData from project.admin.component: " + JSON.stringify(data));
+                this.projects = data;
             },
             error => this.msg = <any>error);
 
@@ -56,34 +56,34 @@ export class MissionAdminComponent implements OnInit {
       
     }
 
-    addMission() {
+    addProject() {
         this.dbops = DBOperation.create;
         this.SetControlsState(true);
-        this.modalTitle = "Add New Mission";
+        this.modalTitle = "Add New Project";
         this.modalBtnTitle = "Add";
-        this.missionFrm.reset();
+        this.projectFrm.reset();
         this.modal.open();
 
     }
 
-    editMission(id: number) {
+    editProject(id: number) {
         debugger;
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
-        this.modalTitle = "Edit Mission";
+        this.modalTitle = "Edit Project";
         this.modalBtnTitle = "Update";
-        this.mission = this.missions.filter(x => x.Id == id)[0];
-        this.missionFrm.setValue(this.mission);
+        this.project = this.projects.filter(x => x.Id == id)[0];
+        this.projectFrm.setValue(this.project);
         this.modal.open();
     }
 
-    deleteMission(id: number) {
+    deleteProject(id: number) {
         this.dbops = DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.mission = this.missions.filter(x => x.Id == id)[0];
-        this.missionFrm.setValue(this.mission);
+        this.project = this.projects.filter(x => x.Id == id)[0];
+        this.projectFrm.setValue(this.project);
         this.modal.open();
     }
 
@@ -92,14 +92,14 @@ export class MissionAdminComponent implements OnInit {
         debugger;
         switch (this.dbops) {
             case DBOperation.create:
-                this.missionService.AddMission(Global.BASE_ADD_MISSION_ENDPOINT, formData._value).subscribe(
+                this.projectService.AddProject(Global.BASE_ADD_PROJECT_ENDPOINT, formData._value).subscribe(
                     data => {
                         console.log(data);
                         // if (data == 'ok') //Success
                         if (data.Id == 0) //Success
                         {
                             this.msg = "Data successfully added.";
-                            this.getMissionData();
+                            this.getProjectData();
                         }
                         else {
                             this.msg = "There is some issue in creating record, please contact to system administrator!"
@@ -113,14 +113,14 @@ export class MissionAdminComponent implements OnInit {
                 break;
 
             case DBOperation.update:
-                this.missionService.UpdateMission(Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(
+                this.projectService.UpdateProject(Global.BASE_UPDATE_PROJECT_ENDPOINT, formData._value).subscribe(
                     data => {
                         console.log(data);
                         // if (data == 'ok') //Success
                         if (data.Id == 0) //Success
                         {
                             this.msg = "Data successfully updated.";
-                            this.getMissionData();
+                            this.getProjectData();
                         }
                         else {
                             this.msg = "There is some issue in saving records, please contact to system administrator!"
@@ -134,15 +134,15 @@ export class MissionAdminComponent implements OnInit {
                 break;
 
             case DBOperation.delete:
-                //this.missionService.DeleteMission(Global.BASE_DELETE_MISSION_ENDPOINT, formData._value).subscribe(
-                this.missionService.DeleteMission1(Global.BASE_DELETE_MISSION_ENDPOINT1, formData._value.Id).subscribe(
+                //this.projectService.DeleteProject(Global.BASE_DELETE_PROJECT_ENDPOINT, formData._value).subscribe(
+                this.projectService.DeleteProject1(Global.BASE_DELETE_PROJECT_ENDPOINT1, formData._value.Id).subscribe(
                     data => {
                         console.log(data);
                         // if (data == 'ok') //Success
                         if (data.Id == 0) //Success
                         {
                             this.msg = "Data successfully deleted.";
-                            this.getMissionData();
+                            this.getProjectData();
                         }
                         else {
                             this.msg = "There is some issue in deleting a record, please contact to system administrator!"
@@ -158,6 +158,6 @@ export class MissionAdminComponent implements OnInit {
     }
 
     SetControlsState(isEnable: boolean) {
-        isEnable ? this.missionFrm.enable() : this.missionFrm.disable();
+        isEnable ? this.projectFrm.enable() : this.projectFrm.disable();
     }
 }

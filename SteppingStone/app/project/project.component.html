@@ -4,9 +4,9 @@
     </div>
     <div class="card-body">
         <div class="container-fluid">
-            <div *ngFor="let mission of missions">
-                <div><h1>{{mission.Title}}</h1></div>
-                <div [innerHtml]="mission.Description"></div>
+            <div *ngFor="let project of projects">
+                <div><h1>{{project.Title}}</h1></div>
+                <div [innerHtml]="project.Description"></div>
             </div>
         </div>
     </div>
