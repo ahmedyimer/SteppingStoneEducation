@@ -182,6 +182,7 @@
     <Content Include="app\admin\mission\mission.admin.component.html" />
     <Content Include="app\app.component.html" />
     <Content Include="app\home\home.component.html" />
+    <Content Include="app\project\project.component.html" />
     <Content Include="app\mission\mission.component.html" />
     <Content Include="assets\steppingstone.css" />
     <Content Include="Content\bootstrap.css" />
@@ -260,9 +261,12 @@
     <TypeScriptCompile Include="app\environments\environment.ts" />
     <TypeScriptCompile Include="app\home\home.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\Model\project.ts" />
+    <TypeScriptCompile Include="app\project\project.component.ts" />
     <TypeScriptCompile Include="app\mission\mission.component.ts" />
     <TypeScriptCompile Include="app\Model\mission.ts" />
     <TypeScriptCompile Include="app\Model\aboutus.ts" />
+    <TypeScriptCompile Include="app\Service\project.service.ts" />
     <TypeScriptCompile Include="app\Service\mission.service.ts" />
     <TypeScriptCompile Include="app\Service\aboutus.service.ts" />
     <TypeScriptCompile Include="app\Shared\enum.ts" />
