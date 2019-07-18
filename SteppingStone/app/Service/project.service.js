@@ -18,18 +18,18 @@ require("rxjs/add/operator/catch");
 require("rxjs/Rx");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/toPromise");
-var MissionService = /** @class */ (function () {
-    function MissionService(http) {
+var ProjectService = /** @class */ (function () {
+    function ProjectService(http) {
         this.http = http;
     }
-    MissionService.prototype.getMission = function (url) {
+    ProjectService.prototype.getProjects = function (url) {
         debugger;
         return this.http.get(url)
             .map(function (res) { return res.json(); })
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError);
     };
-    MissionService.prototype.AddMission = function (url, model) {
+    ProjectService.prototype.AddProject = function (url, model) {
         debugger;
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -38,7 +38,7 @@ var MissionService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    MissionService.prototype.UpdateMission = function (url, model) {
+    ProjectService.prototype.UpdateProject = function (url, model) {
         debugger;
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -47,7 +47,7 @@ var MissionService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    MissionService.prototype.DeleteMission = function (url, model) {
+    ProjectService.prototype.DeleteProject = function (url, model) {
         debugger;
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -56,7 +56,7 @@ var MissionService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    MissionService.prototype.DeleteMission1 = function (url, Id) {
+    ProjectService.prototype.DeleteProject1 = function (url, Id) {
         debugger;
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers, params: { Id: Id } });
@@ -64,17 +64,17 @@ var MissionService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    MissionService.prototype.handleError = function (error) {
+    ProjectService.prototype.handleError = function (error) {
         debugger;
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
-    MissionService = __decorate([
+    ProjectService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
-    ], MissionService);
-    return MissionService;
+    ], ProjectService);
+    return ProjectService;
 }());
-exports.MissionService = MissionService;
+exports.ProjectService = ProjectService;
 ;
-//# sourceMappingURL=mission.service.js.map
+//# sourceMappingURL=project.service.js.map

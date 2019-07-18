@@ -10,34 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var mission_service_1 = require("../Service/mission.service");
+var project_service_1 = require("../Service/project.service");
 var global_1 = require("../Shared/global");
-var MissionComponent = /** @class */ (function () {
-    function MissionComponent(missionService) {
-        this.missionService = missionService;
-        this.pageTitle = 'Mission';
+var ProjectComponent = /** @class */ (function () {
+    function ProjectComponent(projectService) {
+        this.projectService = projectService;
+        this.pageTitle = 'Project';
         this.indLoading = false;
     }
-    MissionComponent.prototype.ngOnInit = function () {
-        this.getMissionData();
+    ProjectComponent.prototype.ngOnInit = function () {
+        this.getProjectData();
     };
-    MissionComponent.prototype.getMissionData = function () {
+    ProjectComponent.prototype.getProjectData = function () {
         var _this = this;
-        this.missionService.getMission(global_1.Global.BASE_MISSION_ENDPOINT)
+        this.projectService.getProjects(global_1.Global.BASE_PROJECT_ENDPOINT)
             .subscribe(function (data) {
-            console.log("getMissionData from mission.component: " + JSON.stringify(data));
-            _this.missions = data;
+            console.log("getProjectData from project.component: " + JSON.stringify(data));
+            _this.projects = data;
         }, function (error) { return _this.msg = error; });
     };
-    MissionComponent = __decorate([
+    ProjectComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            //selector: 'mission',
-            templateUrl: './mission.component.html'
+            //selector: 'project',
+            templateUrl: './project.component.html'
         }),
-        __metadata("design:paramtypes", [mission_service_1.MissionService])
-    ], MissionComponent);
-    return MissionComponent;
+        __metadata("design:paramtypes", [project_service_1.ProjectService])
+    ], ProjectComponent);
+    return ProjectComponent;
 }());
-exports.MissionComponent = MissionComponent;
-//# sourceMappingURL=mission.component.js.map
+exports.ProjectComponent = ProjectComponent;
+//# sourceMappingURL=project.component.js.map
