@@ -5,6 +5,10 @@ var Global = /** @class */ (function () {
     }
     //About us
     Global.BASE_ABOUTUS_ENDPOINT = 'api/AboutUs/GetAboutUs';
+    Global.BASE_ADD_ABOUTUS_ENDPOINT = 'api/AboutUs/AddAboutUs';
+    Global.BASE_UPDATE_ABOUTUS_ENDPOINT = 'api/AboutUs/UpdateAboutUs';
+    Global.BASE_DELETE_ABOUTUS_ENDPOINT = 'api/AboutUs/DeleteAboutUs';
+    Global.BASE_DELETE_ABOUTUS_ENDPOINT1 = 'api/AboutUs/DeleteAboutUs1';
     //Mission
     Global.BASE_MISSION_ENDPOINT = 'api/Mission/GetMission';
     Global.BASE_UPDATE_MISSION_ENDPOINT = 'api/Mission/UpdateMission';

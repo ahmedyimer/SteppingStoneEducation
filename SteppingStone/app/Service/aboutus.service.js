@@ -23,14 +23,47 @@ var AboutUsService = /** @class */ (function () {
         this.http = http;
     }
     AboutUsService.prototype.getAboutUs = function (url) {
-        debugger;
         return this.http.get(url)
             .map(function (res) { return res.json(); })
             .do(function (data) { return console.log(JSON.stringify(data)); })
             .catch(this.handleError);
     };
-    AboutUsService.prototype.handleError = function (error) {
+    AboutUsService.prototype.AddAboutUs = function (url, model) {
         debugger;
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    AboutUsService.prototype.UpdateAboutUs = function (url, model) {
+        debugger;
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    AboutUsService.prototype.DeleteAboutUs1 = function (url, model) {
+        debugger;
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    AboutUsService.prototype.DeleteAboutUs = function (url, Id) {
+        debugger;
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers, params: { Id: Id } });
+        return this.http.post(url, null, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    AboutUsService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };

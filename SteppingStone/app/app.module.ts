@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 
 //About Us
 import { AboutUsComponent } from './aboutus/aboutus.component';
+import { AboutUsAdminComponent } from './admin/aboutus/aboutus.admin.component';
 import { AboutUsService } from './Service/aboutus.service';
 
 //Mission
@@ -25,7 +26,7 @@ import { ProjectService } from './Service/project.service';
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, HomeComponent, AboutUsComponent, MissionComponent, MissionAdminComponent, ProjectComponent, ProjectAdminComponent],
+    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, MissionAdminComponent, ProjectComponent, ProjectAdminComponent],
     providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService],
     bootstrap: [AppComponent]
 

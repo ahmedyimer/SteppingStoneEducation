@@ -26,8 +26,6 @@ export class AboutUsComponent implements OnInit {
     }
 
     getAboutUsData() : void {
-        debugger;
-
         this.aboutusService.getAboutUs(Global.BASE_ABOUTUS_ENDPOINT)
             .subscribe((data) => {
                 console.log(JSON.stringify(data));

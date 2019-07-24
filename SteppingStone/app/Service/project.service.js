@@ -26,7 +26,7 @@ var ProjectService = /** @class */ (function () {
         debugger;
         return this.http.get(url)
             .map(function (res) { return res.json(); })
-            // .do(data => console.log(JSON.stringify(data)))
+            .do(function (data) { return console.log(JSON.stringify(data)); })
             .catch(this.handleError);
     };
     ProjectService.prototype.AddProject = function (url, model) {

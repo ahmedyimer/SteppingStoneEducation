@@ -23,7 +23,6 @@ var AboutUsComponent = /** @class */ (function () {
     };
     AboutUsComponent.prototype.getAboutUsData = function () {
         var _this = this;
-        debugger;
         this.aboutusService.getAboutUs(global_1.Global.BASE_ABOUTUS_ENDPOINT)
             .subscribe(function (data) {
             console.log(JSON.stringify(data));

@@ -15,8 +15,8 @@ namespace SteppingStone.Controllers
 
             try
             {
-                var missionservice = new MissionService();
-                project = (List<Project>)missionservice.GetMission();
+                var projectservice = new ProjectService();
+                project = (List<Project>)projectservice.GetProject();
             }
             catch
             {

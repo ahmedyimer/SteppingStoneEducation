@@ -37,6 +37,47 @@ namespace SteppingStone.Services
 
         }
 
+        public void AddAboutUs(AboutUs aboutus)
+        {
+            AboutUsData aboutusData = new AboutUsData();
+
+            try
+            {
+                aboutusData.AddAboutUs(aboutus);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void UpdateAboutUs(AboutUs aboutus)
+        {
+            AboutUsData aboutusData = new AboutUsData();
+
+            try
+            {
+                aboutusData.UpdateAboutUs(aboutus);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void DeleteAboutUs(int Id)
+        {
+            AboutUsData aboutusData = new AboutUsData();
+
+            try
+            {
+                aboutusData.DeleteAboutUs(Id);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
 
         public List<AboutUs> MapAboutUs(DataTable tbl)
         {

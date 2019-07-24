@@ -17,6 +17,7 @@ var app_routing_1 = require("./app.routing");
 var home_component_1 = require("./home/home.component");
 //About Us
 var aboutus_component_1 = require("./aboutus/aboutus.component");
+var aboutus_admin_component_1 = require("./admin/aboutus/aboutus.admin.component");
 var aboutus_service_1 = require("./Service/aboutus.service");
 //Mission
 var mission_component_1 = require("./mission/mission.component");
@@ -32,7 +33,7 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
-            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, aboutus_component_1.AboutUsComponent, mission_component_1.MissionComponent, mission_admin_component_1.MissionAdminComponent, project_component_1.ProjectComponent, project_admin_component_1.ProjectAdminComponent],
+            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, aboutus_component_1.AboutUsComponent, aboutus_admin_component_1.AboutUsAdminComponent, mission_component_1.MissionComponent, mission_admin_component_1.MissionAdminComponent, project_component_1.ProjectComponent, project_admin_component_1.ProjectAdminComponent],
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, aboutus_service_1.AboutUsService, mission_service_1.MissionService, project_service_1.ProjectService],
             bootstrap: [app_component_1.AppComponent]
         })

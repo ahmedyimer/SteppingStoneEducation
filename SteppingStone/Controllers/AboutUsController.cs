@@ -59,6 +59,63 @@ namespace SteppingStone.Controllers
             //return output;
         }
 
+        [HttpPost]
+        [Route("api/AboutUs/AddAboutUs")]
+        public IHttpActionResult AddAboutUs([FromBody]AboutUs value)
+        {
+            AboutUs aboutus = new AboutUs();
+
+            var aboutusservice = new AboutUsService();
+            aboutusservice.AddAboutUs(value);
+
+            return Ok(aboutus);
+        }
+
+        [HttpPost]
+        [Route("api/AboutUs/UpdateAboutUs")]
+        public IHttpActionResult UpdateAboutUs([FromBody]AboutUs value)
+        {
+            AboutUs aboutus = new AboutUs();
+
+            var aboutusservice = new AboutUsService();
+            aboutusservice.UpdateAboutUs(value);
+
+            return Ok(aboutus);
+        }
+
+        [HttpPost]
+        [Route("api/AboutUs/DeleteAboutUs1")]
+        public IHttpActionResult DeleteAboutUs1([FromBody]AboutUs value)
+        {
+            AboutUs aboutus = new AboutUs();
+
+            var aboutusservice = new AboutUsService();
+            aboutusservice.DeleteAboutUs(value.Id);
+
+            return Ok(aboutus);
+        }
+
+        [HttpPost]
+        [Route("api/AboutUs/DeleteAboutUs")]
+        public IHttpActionResult DeleteAboutUs(int Id)
+        {
+            AboutUs aboutus = new AboutUs();
+
+            var aboutusservice = new AboutUsService();
+            aboutusservice.DeleteAboutUs(Id);
+
+            return Ok(aboutus);
+        }
+
+
+
+
+
+
+
+
+
+
 
 
         // GET: api/AboutUs/5
