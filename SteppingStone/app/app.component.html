@@ -4,45 +4,54 @@
     <meta charset="utf-8" />
     <title>Stepping Stone Education Foundation</title>
     <link href="../assets/steppingstone.css" rel="stylesheet" />
+    <!--<link href="../assets/Style.css" rel="stylesheet" />-->
 
+
+    <!--<script src="https://code.angularjs.org/tools/system.js"></script>-->
 </head>
 <body>
 
-        <div><img src="../images/stbanner.jpg" alt="Stepping Stones Education Foundation" /></div>
+    <!--<div style="height:200px; text-align:center; vertical-align:middle; font-size:20px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        <br /><br /> <br />
+        <b>STEPPING STONE <br /> EDUCATION FOUNDATION</b>
+    </div>
 
+    <div  style="height:50px; text-align:center; vertical-align:middle">
+       THE WEB SITE IS CURRENTY UNDER CONSTRUCTION
+    </div>
 
+    <div  style="height:50px; text-align:center">
+        <b>  C O M M I N G  &nbsp; S O O N </b>
+    </div>-->
 
+    <div><img src="../images/stbanner.jpg" alt="Stepping Stones Education Foundation" /></div>
 
-
-
+    <div>
         <div>
-            <div>
-                <nav class='navbar navbar-inverse'>
-                    <div class='container-fluid'>
-                        <ul class='nav navbar-nav'>
-                            <li><a [routerLink]="['home']">Home</a></li>
-                            <li><a [routerLink]="['aboutus']">About Us</a></li>
-                            <li><a [routerLink]="['mission']">Mission</a></li>
-                            <li><a [routerLink]="['project']">Projects</a></li>
+            <nav class='navbar navbar-inverse'>
+                <div class='container-fluid'>
+                    <ul class='nav navbar-nav'>
+                        <li><a [routerLink]="['home']">Home</a></li>
+                        <li><a [routerLink]="['aboutus']">About Us</a></li>
+                        <li><a [routerLink]="['mission']">Mission</a></li>
+                        <li><a [routerLink]="['project']">Projects</a></li>
 
-                            <li><a [routerLink]="['missionadmin']">Mission Admin</a></li>
-                            <li><a [routerLink]="['projectadmin']">Project Admin</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class='container' style="min-height:500px;">
-                    <router-outlet></router-outlet>
+                        <li><a [routerLink]="['aboutusadmin']">About Us Admin</a></li>
+                        <li><a [routerLink]="['missionadmin']">Mission Admin</a></li>
+                        <li><a [routerLink]="['projectadmin']">Project Admin</a></li>
+                    </ul>
                 </div>
+            </nav>
+            <div class='container' style="min-height:500px;">
+                <router-outlet></router-outlet>
             </div>
         </div>
+    </div>
 
-        
-    
-    
-    
-    <div style="text-align:center; background-color:gray">
-            &#9400;2019 Steppingstonefoundation.org <br />
-            Developed by: Ahmed Yimer (641)-814-6134
+
+    <div style="text-align:center; background-color:gray; height: 200px; vertical-align:middle">
+        &#9400;2019 Steppingstoneef.org <br />
+        Developed by: Ahmed Yimer <br />(641)-814-6134
     </div>
 
 

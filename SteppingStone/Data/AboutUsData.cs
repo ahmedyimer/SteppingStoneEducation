@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SteppingStone.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -45,5 +46,78 @@ namespace SteppingStone.Data
 
             return tbl;
         }
+
+        public void AddAboutUs(AboutUs value)
+        {
+            System.Data.SqlClient.SqlCommand cmdSQL = null;
+            System.Data.SqlClient.SqlConnection cnSQL = null;
+
+            string ConnString = System.Configuration.ConfigurationManager.ConnectionStrings["SteppingStoneDB"].ConnectionString;
+
+            try
+            {
+                cnSQL = new System.Data.SqlClient.SqlConnection(ConnString);
+                cnSQL.Open();
+                cmdSQL = new System.Data.SqlClient.SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.Text;
+
+                cmdSQL.CommandText = String.Format("INSERT INTO AboutUs (Title, Description) VALUES ('{0}', '{1}')", value.Title, value.Description);
+                cmdSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void UpdateAboutUs(AboutUs value)
+        {
+            System.Data.SqlClient.SqlCommand cmdSQL = null;
+            System.Data.SqlClient.SqlConnection cnSQL = null;
+
+            string ConnString = System.Configuration.ConfigurationManager.ConnectionStrings["SteppingStoneDB"].ConnectionString;
+
+            try
+            {
+                cnSQL = new System.Data.SqlClient.SqlConnection(ConnString);
+                cnSQL.Open();
+                cmdSQL = new System.Data.SqlClient.SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.Text;
+
+                cmdSQL.CommandText = String.Format("UPDATE AboutUs SET Title = '{0}', Description = '{1}' where Id = {2}", value.Title, value.Description, value.Id);
+                cmdSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void DeleteAboutUs(int Id)
+        {
+            System.Data.SqlClient.SqlCommand cmdSQL = null;
+            System.Data.SqlClient.SqlConnection cnSQL = null;
+
+            string ConnString = System.Configuration.ConfigurationManager.ConnectionStrings["SteppingStoneDB"].ConnectionString;
+
+            try
+            {
+                cnSQL = new System.Data.SqlClient.SqlConnection(ConnString);
+                cnSQL.Open();
+                cmdSQL = new System.Data.SqlClient.SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.Text;
+
+                cmdSQL.CommandText = String.Format("DELETE AboutUs WHERE Id = '{0}'", Id);
+                cmdSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
     }
 }

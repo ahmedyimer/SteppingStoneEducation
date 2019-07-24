@@ -4,6 +4,9 @@ import { AboutUsComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component'
 import { MissionComponent } from './mission/mission.component'
 import { ProjectComponent } from './project/project.component'
+
+//Admin
+import { AboutUsAdminComponent } from './admin/aboutus/aboutus.admin.component'
 import { MissionAdminComponent } from './admin/mission/mission.admin.component'
 import { ProjectAdminComponent } from './admin/project/project.admin.component'
 
@@ -13,6 +16,7 @@ const appRoutes: Routes = [
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'mission', component: MissionComponent },
     { path: 'project', component: ProjectComponent },
+    { path: 'aboutusadmin', component: AboutUsAdminComponent },
     { path: 'missionadmin', component: MissionAdminComponent },
     { path: 'projectadmin', component: ProjectAdminComponent }
 ];

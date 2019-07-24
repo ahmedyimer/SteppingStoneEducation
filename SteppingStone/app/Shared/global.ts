@@ -1,6 +1,10 @@
 ﻿export class Global {
     //About us
     public static BASE_ABOUTUS_ENDPOINT = 'api/AboutUs/GetAboutUs';
+    public static BASE_ADD_ABOUTUS_ENDPOINT = 'api/AboutUs/AddAboutUs';
+    public static BASE_UPDATE_ABOUTUS_ENDPOINT = 'api/AboutUs/UpdateAboutUs';
+    public static BASE_DELETE_ABOUTUS_ENDPOINT = 'api/AboutUs/DeleteAboutUs';
+    public static BASE_DELETE_ABOUTUS_ENDPOINT1 = 'api/AboutUs/DeleteAboutUs1';
 
     //Mission
     public static BASE_MISSION_ENDPOINT = 'api/Mission/GetMission';

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
@@ -17,7 +18,7 @@ require("rxjs/add/operator/catch");
 require("rxjs/Rx");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/toPromise");
-var MissionService = (function () {
+var MissionService = /** @class */ (function () {
     function MissionService(http) {
         this.http = http;
     }
@@ -25,6 +26,7 @@ var MissionService = (function () {
         debugger;
         return this.http.get(url)
             .map(function (res) { return res.json(); })
+            // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError);
     };
     MissionService.prototype.AddMission = function (url, model) {
@@ -67,12 +69,12 @@ var MissionService = (function () {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
+    MissionService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], MissionService);
     return MissionService;
 }());
-MissionService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], MissionService);
 exports.MissionService = MissionService;
 ;
 //# sourceMappingURL=mission.service.js.map

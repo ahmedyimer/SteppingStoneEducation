@@ -21,7 +21,7 @@ export class ProjectService {
 
         return this.http.get(url)
             .map((res: Response) => <IProject[]>res.json())
-           // .do(data => console.log(JSON.stringify(data)))
+            .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError);
     }
 
