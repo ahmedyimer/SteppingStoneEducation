@@ -9,73 +9,73 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var mission_service_1 = require("../../Service/mission.service");
+var project_service_1 = require("../../Service/project.service");
 var global_1 = require("../../Shared/global");
 var enum_1 = require("../../Shared/enum");
 var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var forms_1 = require("@angular/forms");
-var MissionAdminComponent = (function () {
-    function MissionAdminComponent(fb, missionService) {
+var ProjectAdminComponent = (function () {
+    function ProjectAdminComponent(fb, projectService) {
         this.fb = fb;
-        this.missionService = missionService;
-        this.pageTitle = 'Mission';
+        this.projectService = projectService;
+        this.pageTitle = 'Project';
         this.indLoading = false;
     }
-    MissionAdminComponent.prototype.ngOnInit = function () {
-        this.missionFrm = this.fb.group({
+    ProjectAdminComponent.prototype.ngOnInit = function () {
+        this.projectFrm = this.fb.group({
             Id: [''],
             Title: ['', forms_1.Validators.required],
             Description: ['', forms_1.Validators.required]
         });
-        this.getMissionData();
+        this.getProjectData();
     };
-    MissionAdminComponent.prototype.getMissionData = function () {
+    ProjectAdminComponent.prototype.getProjectData = function () {
         var _this = this;
-        this.missionService.getMission(global_1.Global.BASE_MISSION_ENDPOINT)
+        this.projectService.getProjects(global_1.Global.BASE_PROJECT_ENDPOINT)
             .subscribe(function (data) {
-            console.log("getMissionData from mission.admin.component: " + JSON.stringify(data));
-            _this.missions = data;
+            console.log("getProjectData from project.admin.component: " + JSON.stringify(data));
+            _this.projects = data;
         }, function (error) { return _this.msg = error; });
     };
-    MissionAdminComponent.prototype.addMission = function () {
+    ProjectAdminComponent.prototype.addProject = function () {
         this.dbops = enum_1.DBOperation.create;
         this.SetControlsState(true);
-        this.modalTitle = "Add New Mission";
+        this.modalTitle = "Add New Project";
         this.modalBtnTitle = "Add";
-        this.missionFrm.reset();
+        this.projectFrm.reset();
         this.modal.open();
     };
-    MissionAdminComponent.prototype.editMission = function (id) {
+    ProjectAdminComponent.prototype.editProject = function (id) {
         debugger;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
-        this.modalTitle = "Edit Mission";
+        this.modalTitle = "Edit Project";
         this.modalBtnTitle = "Update";
-        this.mission = this.missions.filter(function (x) { return x.Id == id; })[0];
-        this.missionFrm.setValue(this.mission);
+        this.project = this.projects.filter(function (x) { return x.Id == id; })[0];
+        this.projectFrm.setValue(this.project);
         this.modal.open();
     };
-    MissionAdminComponent.prototype.deleteMission = function (id) {
+    ProjectAdminComponent.prototype.deleteProject = function (id) {
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.mission = this.missions.filter(function (x) { return x.Id == id; })[0];
-        this.missionFrm.setValue(this.mission);
+        this.project = this.projects.filter(function (x) { return x.Id == id; })[0];
+        this.projectFrm.setValue(this.project);
         this.modal.open();
     };
-    MissionAdminComponent.prototype.onSubmit = function (formData) {
+    ProjectAdminComponent.prototype.onSubmit = function (formData) {
         var _this = this;
         this.msg = "";
         debugger;
         switch (this.dbops) {
             case enum_1.DBOperation.create:
-                this.missionService.AddMission(global_1.Global.BASE_ADD_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
+                this.projectService.AddProject(global_1.Global.BASE_ADD_PROJECT_ENDPOINT, formData._value).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
                     if (data.Id == 0) {
                         _this.msg = "Data successfully added.";
-                        _this.getMissionData();
+                        _this.getProjectData();
                     }
                     else {
                         _this.msg = "There is some issue in creating record, please contact to system administrator!";
@@ -86,12 +86,12 @@ var MissionAdminComponent = (function () {
                 });
                 break;
             case enum_1.DBOperation.update:
-                this.missionService.UpdateMission(global_1.Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
+                this.projectService.UpdateProject(global_1.Global.BASE_UPDATE_PROJECT_ENDPOINT, formData._value).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
                     if (data.Id == 0) {
                         _this.msg = "Data successfully updated.";
-                        _this.getMissionData();
+                        _this.getProjectData();
                     }
                     else {
                         _this.msg = "There is some issue in saving records, please contact to system administrator!";
@@ -102,13 +102,13 @@ var MissionAdminComponent = (function () {
                 });
                 break;
             case enum_1.DBOperation.delete:
-                //this.missionService.DeleteMission(Global.BASE_DELETE_MISSION_ENDPOINT, formData._value).subscribe(
-                this.missionService.DeleteMission1(global_1.Global.BASE_DELETE_MISSION_ENDPOINT1, formData._value.Id).subscribe(function (data) {
+                //this.projectService.DeleteProject(Global.BASE_DELETE_PROJECT_ENDPOINT, formData._value).subscribe(
+                this.projectService.DeleteProject1(global_1.Global.BASE_DELETE_PROJECT_ENDPOINT1, formData._value.Id).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
                     if (data.Id == 0) {
                         _this.msg = "Data successfully deleted.";
-                        _this.getMissionData();
+                        _this.getProjectData();
                     }
                     else {
                         _this.msg = "There is some issue in deleting a record, please contact to system administrator!";
@@ -120,22 +120,22 @@ var MissionAdminComponent = (function () {
                 break;
         }
     };
-    MissionAdminComponent.prototype.SetControlsState = function (isEnable) {
-        isEnable ? this.missionFrm.enable() : this.missionFrm.disable();
+    ProjectAdminComponent.prototype.SetControlsState = function (isEnable) {
+        isEnable ? this.projectFrm.enable() : this.projectFrm.disable();
     };
-    return MissionAdminComponent;
+    return ProjectAdminComponent;
 }());
 __decorate([
     core_1.ViewChild('modal'),
     __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
-], MissionAdminComponent.prototype, "modal", void 0);
-MissionAdminComponent = __decorate([
+], ProjectAdminComponent.prototype, "modal", void 0);
+ProjectAdminComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        //selector: 'mission',
-        templateUrl: './mission.admin.component.html'
+        //selector: 'project',
+        templateUrl: './project.admin.component.html'
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder, mission_service_1.MissionService])
-], MissionAdminComponent);
-exports.MissionAdminComponent = MissionAdminComponent;
-//# sourceMappingURL=mission.admin.component.js.map
+    __metadata("design:paramtypes", [forms_1.FormBuilder, project_service_1.ProjectService])
+], ProjectAdminComponent);
+exports.ProjectAdminComponent = ProjectAdminComponent;
+//# sourceMappingURL=project.admin.component.js.map

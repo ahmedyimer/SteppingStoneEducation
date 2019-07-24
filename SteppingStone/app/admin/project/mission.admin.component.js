@@ -18,7 +18,7 @@ var MissionAdminComponent = (function () {
     function MissionAdminComponent(fb, missionService) {
         this.fb = fb;
         this.missionService = missionService;
-        this.pageTitle = 'Mission';
+        this.pageTitle = 'Mission1';
         this.indLoading = false;
     }
     MissionAdminComponent.prototype.ngOnInit = function () {

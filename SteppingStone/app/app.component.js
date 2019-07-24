@@ -13,7 +13,7 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     core_1.Component({
-        selector: "user-app",
+        selector: "ss-app",
         moduleId: module.id,
         templateUrl: 'app.component.html'
     })
