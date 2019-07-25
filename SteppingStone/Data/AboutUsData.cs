@@ -41,7 +41,7 @@ namespace SteppingStone.Data
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
 
             return tbl;
@@ -67,7 +67,7 @@ namespace SteppingStone.Data
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
@@ -91,7 +91,7 @@ namespace SteppingStone.Data
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
@@ -115,7 +115,7 @@ namespace SteppingStone.Data
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 

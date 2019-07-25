@@ -30,7 +30,7 @@ namespace SteppingStone.Services
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
 
             return aboutus;
@@ -47,7 +47,7 @@ namespace SteppingStone.Services
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
@@ -61,7 +61,7 @@ namespace SteppingStone.Services
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
@@ -75,7 +75,7 @@ namespace SteppingStone.Services
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
