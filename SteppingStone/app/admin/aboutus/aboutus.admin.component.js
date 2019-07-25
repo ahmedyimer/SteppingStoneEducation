@@ -8,14 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var aboutus_service_1 = require("../../Service/aboutus.service");
 var global_1 = require("../../Shared/global");
 var enum_1 = require("../../Shared/enum");
 var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var forms_1 = require("@angular/forms");
-var AboutUsAdminComponent = /** @class */ (function () {
+var AboutUsAdminComponent = (function () {
     function AboutUsAdminComponent(fb, aboutusService) {
         this.fb = fb;
         this.aboutusService = aboutusService;
@@ -74,8 +73,7 @@ var AboutUsAdminComponent = /** @class */ (function () {
                 this.aboutusService.AddAboutUs(global_1.Global.BASE_ADD_ABOUTUS_ENDPOINT, formData._value).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
-                    if (data.Id == 0) //Success
-                     {
+                    if (data.Id == 0) {
                         _this.msg = "Data successfully added.";
                         _this.getAboutUsData();
                     }
@@ -91,8 +89,7 @@ var AboutUsAdminComponent = /** @class */ (function () {
                 this.aboutusService.UpdateAboutUs(global_1.Global.BASE_UPDATE_ABOUTUS_ENDPOINT, formData._value).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
-                    if (data.Id == 0) //Success
-                     {
+                    if (data.Id == 0) {
                         _this.msg = "Data successfully updated.";
                         _this.getAboutUsData();
                     }
@@ -109,8 +106,7 @@ var AboutUsAdminComponent = /** @class */ (function () {
                 this.aboutusService.DeleteAboutUs(global_1.Global.BASE_DELETE_ABOUTUS_ENDPOINT, formData._value.Id).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
-                    if (data.Id == 0) //Success
-                     {
+                    if (data.Id == 0) {
                         _this.msg = "Data successfully deleted.";
                         _this.getAboutUsData();
                     }
@@ -127,19 +123,19 @@ var AboutUsAdminComponent = /** @class */ (function () {
     AboutUsAdminComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.aboutusFrm.enable() : this.aboutusFrm.disable();
     };
-    __decorate([
-        core_1.ViewChild('modal'),
-        __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
-    ], AboutUsAdminComponent.prototype, "modal", void 0);
-    AboutUsAdminComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            //selector: 'aboutus',
-            templateUrl: './aboutus.admin.component.html'
-        }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, aboutus_service_1.AboutUsService])
-    ], AboutUsAdminComponent);
     return AboutUsAdminComponent;
 }());
+__decorate([
+    core_1.ViewChild('modal'),
+    __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
+], AboutUsAdminComponent.prototype, "modal", void 0);
+AboutUsAdminComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        //selector: 'aboutus',
+        templateUrl: './aboutus.admin.component.html'
+    }),
+    __metadata("design:paramtypes", [forms_1.FormBuilder, aboutus_service_1.AboutUsService])
+], AboutUsAdminComponent);
 exports.AboutUsAdminComponent = AboutUsAdminComponent;
 //# sourceMappingURL=aboutus.admin.component.js.map

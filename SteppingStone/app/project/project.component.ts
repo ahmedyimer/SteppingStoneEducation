@@ -10,7 +10,7 @@ import { Global } from '../Shared/global';
     templateUrl: './project.component.html'
 })
 export class ProjectComponent implements OnInit {
-    public pageTitle = 'Project';
+    public pageTitle = 'Our Projects';
     msg: string;
 
     projects: IProject[];

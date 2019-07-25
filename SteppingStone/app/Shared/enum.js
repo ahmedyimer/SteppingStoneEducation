@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var DBOperation;
 (function (DBOperation) {
     DBOperation[DBOperation["create"] = 1] = "create";

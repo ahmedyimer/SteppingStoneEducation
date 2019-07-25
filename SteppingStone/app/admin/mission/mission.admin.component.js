@@ -8,14 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var mission_service_1 = require("../../Service/mission.service");
 var global_1 = require("../../Shared/global");
 var enum_1 = require("../../Shared/enum");
 var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var forms_1 = require("@angular/forms");
-var MissionAdminComponent = /** @class */ (function () {
+var MissionAdminComponent = (function () {
     function MissionAdminComponent(fb, missionService) {
         this.fb = fb;
         this.missionService = missionService;
@@ -74,8 +73,7 @@ var MissionAdminComponent = /** @class */ (function () {
                 this.missionService.AddMission(global_1.Global.BASE_ADD_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
-                    if (data.Id == 0) //Success
-                     {
+                    if (data.Id == 0) {
                         _this.msg = "Data successfully added.";
                         _this.getMissionData();
                     }
@@ -91,8 +89,7 @@ var MissionAdminComponent = /** @class */ (function () {
                 this.missionService.UpdateMission(global_1.Global.BASE_UPDATE_MISSION_ENDPOINT, formData._value).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
-                    if (data.Id == 0) //Success
-                     {
+                    if (data.Id == 0) {
                         _this.msg = "Data successfully updated.";
                         _this.getMissionData();
                     }
@@ -109,8 +106,7 @@ var MissionAdminComponent = /** @class */ (function () {
                 this.missionService.DeleteMission1(global_1.Global.BASE_DELETE_MISSION_ENDPOINT1, formData._value.Id).subscribe(function (data) {
                     console.log(data);
                     // if (data == 'ok') //Success
-                    if (data.Id == 0) //Success
-                     {
+                    if (data.Id == 0) {
                         _this.msg = "Data successfully deleted.";
                         _this.getMissionData();
                     }
@@ -127,19 +123,19 @@ var MissionAdminComponent = /** @class */ (function () {
     MissionAdminComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.missionFrm.enable() : this.missionFrm.disable();
     };
-    __decorate([
-        core_1.ViewChild('modal'),
-        __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
-    ], MissionAdminComponent.prototype, "modal", void 0);
-    MissionAdminComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            //selector: 'mission',
-            templateUrl: './mission.admin.component.html'
-        }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, mission_service_1.MissionService])
-    ], MissionAdminComponent);
     return MissionAdminComponent;
 }());
+__decorate([
+    core_1.ViewChild('modal'),
+    __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
+], MissionAdminComponent.prototype, "modal", void 0);
+MissionAdminComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        //selector: 'mission',
+        templateUrl: './mission.admin.component.html'
+    }),
+    __metadata("design:paramtypes", [forms_1.FormBuilder, mission_service_1.MissionService])
+], MissionAdminComponent);
 exports.MissionAdminComponent = MissionAdminComponent;
 //# sourceMappingURL=mission.admin.component.js.map
