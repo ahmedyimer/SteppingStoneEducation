@@ -19,4 +19,12 @@
     public static BASE_ADD_PROJECT_ENDPOINT = 'api/Project/AddProject';
     public static BASE_DELETE_PROJECT_ENDPOINT = 'api/Project/DeleteProject';
     public static BASE_DELETE_PROJECT_ENDPOINT1 = 'api/Project/DeleteProject1';
+
+    //Our Approach
+    public static BASE_OURAPPROACH_ENDPOINT = 'api/OurApproach/GetOurApproach';
+    public static BASE_ADD_OURAPPROACH_ENDPOINT = 'api/OurApproach/AddOurApproach';
+    public static BASE_UPDATE_OURAPPROACH_ENDPOINT = 'api/OurApproach/UpdateOurApproach';
+    public static BASE_DELETE_OURAPPROACH_ENDPOINT = 'api/OurApproach/DeleteOurApproach';
+    public static BASE_DELETE_OURAPPROACH_ENDPOINT1 = 'api/OurApproach/DeleteOurApproach1';
+
 }

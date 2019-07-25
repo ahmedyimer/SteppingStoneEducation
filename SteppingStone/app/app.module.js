@@ -26,6 +26,10 @@ var mission_service_1 = require("./Service/mission.service");
 var project_component_1 = require("./project/project.component");
 var project_admin_component_1 = require("./admin/project/project.admin.component");
 var project_service_1 = require("./Service/project.service");
+//Project
+var ourapproach_component_1 = require("./ourapproach/ourapproach.component");
+var ourapproach_admin_component_1 = require("./admin/ourapproach/ourapproach.admin.component");
+var ourapproach_service_1 = require("./Service/ourapproach.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,8 +38,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
-        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, aboutus_component_1.AboutUsComponent, aboutus_admin_component_1.AboutUsAdminComponent, mission_component_1.MissionComponent, mission_admin_component_1.MissionAdminComponent, project_component_1.ProjectComponent, project_admin_component_1.ProjectAdminComponent],
-        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, aboutus_service_1.AboutUsService, mission_service_1.MissionService, project_service_1.ProjectService],
+        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, aboutus_component_1.AboutUsComponent, aboutus_admin_component_1.AboutUsAdminComponent, mission_component_1.MissionComponent, project_component_1.ProjectComponent, ourapproach_component_1.OurApproachComponent, mission_admin_component_1.MissionAdminComponent, project_admin_component_1.ProjectAdminComponent, ourapproach_admin_component_1.OurApproachAdminComponent],
+        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, aboutus_service_1.AboutUsService, mission_service_1.MissionService, project_service_1.ProjectService, ourapproach_service_1.OurApproachService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

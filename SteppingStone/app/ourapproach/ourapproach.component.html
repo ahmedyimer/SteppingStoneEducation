@@ -1,0 +1,10 @@
+﻿<div class="card">
+    <div class="card-body">
+        <div class="container-fluid">
+            <div *ngFor="let ourapproach of ourapproaches">
+                <div><h1>{{ourapproach.Title}}</h1></div>
+                <div [innerHtml]="ourapproach.Description"></div>
+            </div>
+        </div>
+    </div>
+</div>

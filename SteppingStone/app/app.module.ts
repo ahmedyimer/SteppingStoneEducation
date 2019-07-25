@@ -24,10 +24,15 @@ import { ProjectComponent } from './project/project.component';
 import { ProjectAdminComponent } from './admin/project/project.admin.component';
 import { ProjectService } from './Service/project.service';
 
+//Project
+import { OurApproachComponent } from './ourapproach/ourapproach.component';
+import { OurApproachAdminComponent } from './admin/ourapproach/ourapproach.admin.component';
+import { OurApproachService } from './Service/ourapproach.service';
+
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, MissionAdminComponent, ProjectComponent, ProjectAdminComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService],
+    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, OurApproachComponent, MissionAdminComponent, ProjectAdminComponent, OurApproachAdminComponent],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService],
     bootstrap: [AppComponent]
 
 })

@@ -22,5 +22,11 @@ Global.BASE_UPDATE_PROJECT_ENDPOINT = 'api/Project/UpdateProject';
 Global.BASE_ADD_PROJECT_ENDPOINT = 'api/Project/AddProject';
 Global.BASE_DELETE_PROJECT_ENDPOINT = 'api/Project/DeleteProject';
 Global.BASE_DELETE_PROJECT_ENDPOINT1 = 'api/Project/DeleteProject1';
+//Our Approach
+Global.BASE_OURAPPROACH_ENDPOINT = 'api/OurApproach/GetOurApproach';
+Global.BASE_ADD_OURAPPROACH_ENDPOINT = 'api/OurApproach/AddOurApproach';
+Global.BASE_UPDATE_OURAPPROACH_ENDPOINT = 'api/OurApproach/UpdateOurApproach';
+Global.BASE_DELETE_OURAPPROACH_ENDPOINT = 'api/OurApproach/DeleteOurApproach';
+Global.BASE_DELETE_OURAPPROACH_ENDPOINT1 = 'api/OurApproach/DeleteOurApproach1';
 exports.Global = Global;
 //# sourceMappingURL=global.js.map
