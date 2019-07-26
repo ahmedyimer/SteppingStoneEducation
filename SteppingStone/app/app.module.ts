@@ -29,10 +29,17 @@ import { OurApproachComponent } from './ourapproach/ourapproach.component';
 import { OurApproachAdminComponent } from './admin/ourapproach/ourapproach.admin.component';
 import { OurApproachService } from './Service/ourapproach.service';
 
+//How To Involve
+import { HowToInvolveComponent } from './howtoinvolve/howtoinvolve.component';
+import { HowToInvolveAdminComponent } from './admin/howtoinvolve/howtoinvolve.admin.component';
+import { HowToInvolveService } from './Service/howtoinvolve.service';
+
+
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, OurApproachComponent, MissionAdminComponent, ProjectAdminComponent, OurApproachAdminComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService],
+    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, HowToInvolveComponent,
+        OurApproachComponent, MissionAdminComponent, ProjectAdminComponent, OurApproachAdminComponent, HowToInvolveAdminComponent],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService, HowToInvolveService],
     bootstrap: [AppComponent]
 
 })

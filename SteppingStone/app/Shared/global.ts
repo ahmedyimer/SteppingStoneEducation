@@ -27,4 +27,18 @@
     public static BASE_DELETE_OURAPPROACH_ENDPOINT = 'api/OurApproach/DeleteOurApproach';
     public static BASE_DELETE_OURAPPROACH_ENDPOINT1 = 'api/OurApproach/DeleteOurApproach1';
 
+    //How To Involve
+    public static BASE_HOWTOINVOLVE_ENDPOINT = 'api/HowToInvolve/GetHowToInvolve';
+    public static BASE_ADD_HOWTOINVOLVE_ENDPOINT = 'api/HowToInvolve/AddHowToInvolve';
+    public static BASE_UPDATE_HOWTOINVOLVE_ENDPOINT = 'api/HowToInvolve/UpdateHowToInvolve';
+    public static BASE_DELETE_HOWTOINVOLVE_ENDPOINT = 'api/HowToInvolve/DeleteHowToInvolve';
+    public static BASE_DELETE_HOWTOINVOLVE_ENDPOINT1 = 'api/HowToInvolve/DeleteHowToInvolve1';
+
+    //Contact Us
+    public static BASE_CONTACTUS_ENDPOINT = 'api/ContactUs/GetContactUs';
+    public static BASE_ADD_CONTACTUS_ENDPOINT = 'api/ContactUs/AddContactUs';
+    public static BASE_UPDATE_CONTACTUS_ENDPOINT = 'api/ContactUs/UpdateContactUs';
+    public static BASE_DELETE_CONTACTUS_ENDPOINT = 'api/ContactUs/DeleteContactUs';
+    public static BASE_DELETE_CONTACTUS_ENDPOINT1 = 'api/ContactUs/DeleteContactUs1';
+
 }

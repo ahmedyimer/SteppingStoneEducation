@@ -7,13 +7,15 @@ import { AboutUsComponent } from './aboutus/aboutus.component';
 import { MissionComponent } from './mission/mission.component';
 import { ProjectComponent } from './project/project.component';
 import { OurApproachComponent } from './ourapproach/ourapproach.component';
-
+import { HowToInvolveComponent } from './howtoinvolve/howtoinvolve.component';
 
 //Admin
 import { AboutUsAdminComponent } from './admin/aboutus/aboutus.admin.component';
 import { MissionAdminComponent } from './admin/mission/mission.admin.component';
 import { ProjectAdminComponent } from './admin/project/project.admin.component';
 import { OurApproachAdminComponent } from './admin/ourapproach/ourapproach.admin.component';
+import { HowToInvolveAdminComponent } from './admin/howtoinvolve/howtoinvolve.admin.component';
+
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,10 +24,14 @@ const appRoutes: Routes = [
     { path: 'mission', component: MissionComponent },
     { path: 'project', component: ProjectComponent },
     { path: 'ourapproach', component: OurApproachComponent },
+    { path: 'howtoinvolve', component: HowToInvolveComponent },
+
     { path: 'aboutusadmin', component: AboutUsAdminComponent },
     { path: 'missionadmin', component: MissionAdminComponent },
     { path: 'projectadmin', component: ProjectAdminComponent },
-    { path: 'ourapproachadmin', component: OurApproachAdminComponent }
+    { path: 'ourapproachadmin', component: OurApproachAdminComponent },
+    { path: 'howtoinvolveadmin', component: HowToInvolveAdminComponent }
+
 ];
 
 export const routing: ModuleWithProviders =
