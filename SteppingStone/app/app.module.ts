@@ -34,12 +34,16 @@ import { HowToInvolveComponent } from './howtoinvolve/howtoinvolve.component';
 import { HowToInvolveAdminComponent } from './admin/howtoinvolve/howtoinvolve.admin.component';
 import { HowToInvolveService } from './Service/howtoinvolve.service';
 
+//Contact Us
+import { ContactUsComponent } from './contactus/contactus.component';
+import { ContactUsAdminComponent } from './admin/contactus/contactus.admin.component';
+import { ContactUsService } from './Service/contactus.service';
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, HowToInvolveComponent,
-        OurApproachComponent, MissionAdminComponent, ProjectAdminComponent, OurApproachAdminComponent, HowToInvolveAdminComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService, HowToInvolveService],
+    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, HowToInvolveComponent, ContactUsComponent,
+        OurApproachComponent, MissionAdminComponent, ProjectAdminComponent, OurApproachAdminComponent, HowToInvolveAdminComponent, ContactUsAdminComponent],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService, HowToInvolveService, ContactUsService],
     bootstrap: [AppComponent]
 
 })

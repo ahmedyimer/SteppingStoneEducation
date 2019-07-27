@@ -1,28 +1,13 @@
-﻿<!--<div class="card">
-    <div class="card-header">
-        {{pageTitle}}
-    </div>
-    <div class="card-body">
-        <div class="container-fluid">
-            <div *ngFor="let about of aboutus">
-                <div>Id:  {{about.Id}}</div>
-                <div>Title:  {{about.Title}}</div>
-                <div>Description:  {{about.Description}}</div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<div class='panel panel-primary'>
+﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        About Us Management
+        Contact Us Adminstration
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
-            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addAboutUs()">Add</button></div>
+            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addContactUs()">Add</button></div>
             <!--<div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>-->
-            <div *ngIf='aboutuses && aboutuses.length==0' class="alert alert-info" role="alert">No record found!</div>
-            <table class='table table-striped' *ngIf='aboutuses && aboutuses.length'>
+            <div *ngIf='contactuses && contactuses.length==0' class="alert alert-info" role="alert">No record found!</div>
+            <table class='table table-striped' *ngIf='contactuses && contactuses.length'>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -32,13 +17,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let aboutus of aboutuses">
-                        <td>{{aboutus.Id}}</td>
-                        <td>{{aboutus.Title}}</td>
-                        <td><div [innerHtml]="aboutus.Description"></div></td>
+                    <tr *ngFor="let contact of contactuses">
+                        <td>{{contact.Id}}</td>
+                        <td>{{contact.Title}}</td>
+                        <td><div [innerHtml]="contact.Description"></div></td>
                         <td>
-                            <button title="Edit" class="btn btn-primary" (click)="editAboutUs(aboutus.Id)">Edit</button>
-                            <button title="Delete" class="btn btn-danger" (click)="deleteAboutUs(aboutus.Id)">Delete</button>
+                            <button title="Edit" class="btn btn-primary" (click)="editContactUs(contact.Id)">Edit</button>
+                            <button title="Delete" class="btn btn-danger" (click)="deleteContactUs(contact.Id)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -56,7 +41,7 @@
 </div>
 
 <modal #modal>
-    <form novalidate (ngSubmit)="onSubmit(aboutusFrm)" [formGroup]="aboutusFrm">
+    <form novalidate (ngSubmit)="onSubmit(contactusFrm)" [formGroup]="contactusFrm">
         <modal-header [show-close]="true">
             <h4 class="modal-title">{{modalTitle}}</h4>
         </modal-header>
@@ -79,7 +64,7 @@
         </modal-body>
         <modal-footer>
             <div>
-                <button type="submit" [disabled]="aboutusFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
+                <button type="submit" [disabled]="contactusFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
                 <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
             </div>
         </modal-footer>

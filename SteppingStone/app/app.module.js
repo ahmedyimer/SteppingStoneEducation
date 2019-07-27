@@ -34,6 +34,10 @@ var ourapproach_service_1 = require("./Service/ourapproach.service");
 var howtoinvolve_component_1 = require("./howtoinvolve/howtoinvolve.component");
 var howtoinvolve_admin_component_1 = require("./admin/howtoinvolve/howtoinvolve.admin.component");
 var howtoinvolve_service_1 = require("./Service/howtoinvolve.service");
+//Contact Us
+var contactus_component_1 = require("./contactus/contactus.component");
+var contactus_admin_component_1 = require("./admin/contactus/contactus.admin.component");
+var contactus_service_1 = require("./Service/contactus.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -42,9 +46,9 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
-        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, aboutus_component_1.AboutUsComponent, aboutus_admin_component_1.AboutUsAdminComponent, mission_component_1.MissionComponent, project_component_1.ProjectComponent, howtoinvolve_component_1.HowToInvolveComponent,
-            ourapproach_component_1.OurApproachComponent, mission_admin_component_1.MissionAdminComponent, project_admin_component_1.ProjectAdminComponent, ourapproach_admin_component_1.OurApproachAdminComponent, howtoinvolve_admin_component_1.HowToInvolveAdminComponent],
-        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, aboutus_service_1.AboutUsService, mission_service_1.MissionService, project_service_1.ProjectService, ourapproach_service_1.OurApproachService, howtoinvolve_service_1.HowToInvolveService],
+        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, aboutus_component_1.AboutUsComponent, aboutus_admin_component_1.AboutUsAdminComponent, mission_component_1.MissionComponent, project_component_1.ProjectComponent, howtoinvolve_component_1.HowToInvolveComponent, contactus_component_1.ContactUsComponent,
+            ourapproach_component_1.OurApproachComponent, mission_admin_component_1.MissionAdminComponent, project_admin_component_1.ProjectAdminComponent, ourapproach_admin_component_1.OurApproachAdminComponent, howtoinvolve_admin_component_1.HowToInvolveAdminComponent, contactus_admin_component_1.ContactUsAdminComponent],
+        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, aboutus_service_1.AboutUsService, mission_service_1.MissionService, project_service_1.ProjectService, ourapproach_service_1.OurApproachService, howtoinvolve_service_1.HowToInvolveService, contactus_service_1.ContactUsService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
