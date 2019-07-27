@@ -39,6 +39,6 @@
     public static BASE_ADD_CONTACTUS_ENDPOINT = 'api/ContactUs/AddContactUs';
     public static BASE_UPDATE_CONTACTUS_ENDPOINT = 'api/ContactUs/UpdateContactUs';
     public static BASE_DELETE_CONTACTUS_ENDPOINT = 'api/ContactUs/DeleteContactUs';
-    public static BASE_DELETE_CONTACTUS_ENDPOINT1 = 'api/ContactUs/DeleteContactUs1';
+    public static BASE_CONTACTUS_MESSAGE_ENDPOINT = 'api/ContactUs/AddContactUsMessage';
 
 }

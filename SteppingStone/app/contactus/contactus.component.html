@@ -1,10 +1,45 @@
-﻿<div class="card">
-    <div class="card-body">
-        <div class="container-fluid">
-            <div *ngFor="let contact of contactus">
-                <div><h1>{{contact.Title}}</h1></div>
-                <div [innerHtml]="contact.Description"></div>
+﻿<div style="padding-left:25px;">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="container-fluid">
+                <div *ngFor="let contact of contactus">
+                    <div class="pagetitle">{{contact.Title}}</div>
+                    <div [innerHtml]="contact.Description"></div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div>
+        <div>{{msg}}</div>
+        <div>
+            <form novalidate (ngSubmit)="onSubmit(contactusFrm)" [formGroup]="contactusFrm">
+                <div class="form-group">
+                    <div>
+                        <span>First Name*</span>
+                        <input type="text" class="form-control" placeholder="FirstName" formControlName="FirstName">
+                    </div>
+                    <div>
+                        <span>Last Name*</span>
+                        <input type="text" class="form-control" placeholder="LastName" formControlName="LastName">
+                    </div>
+                    <div>
+                        <span>Email*</span>
+                        <input type="text" class="form-control" placeholder="Email" formControlName="Email">
+                    </div>
+                    <div>
+                        <span>Message*</span>
+                        <textarea rows="5" class="form-control" placeholder="Message" formControlName="Message"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="contactusFrm.invalid" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
 </div>

@@ -106,6 +106,17 @@ namespace SteppingStone.Controllers
             return Ok(contactus);
         }
 
+        [HttpPost]
+        [Route("api/ContactUs/AddContactUsMessage")]
+        public IHttpActionResult AddContactUsMessage([FromBody]ContactUsMessage value)
+        {
+            ContactUsMessage contactusmessage = new ContactUsMessage();
+
+            var contactusservice = new ContactUsService();
+            contactusservice.AddContactUsMessage(value);
+
+            return Ok(contactusmessage);
+        }
 
 
 

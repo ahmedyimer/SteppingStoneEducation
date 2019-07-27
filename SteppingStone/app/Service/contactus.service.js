@@ -62,6 +62,15 @@ var ContactUsService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ContactUsService.prototype.AddContactUsMessage = function (url, model) {
+        debugger;
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ContactUsService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

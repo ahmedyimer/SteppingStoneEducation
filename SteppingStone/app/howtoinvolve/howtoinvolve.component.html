@@ -1,9 +1,11 @@
-﻿<div class="card">
-    <div class="card-body">
-        <div class="container-fluid">
-            <div *ngFor="let hti of howtoinvolve">
-                <div><h1>{{hti.Title}}</h1></div>
-                <div [innerHtml]="hti.Description"></div>
+﻿<div style="padding-left:25px;">
+    <div class="card">
+        <div class="card-body">
+            <div class="container-fluid">
+                <div *ngFor="let hti of howtoinvolve">
+                    <div class="pagetitle">{{hti.Title}}</div>
+                    <div [innerHtml]="hti.Description"></div>
+                </div>
             </div>
         </div>
     </div>

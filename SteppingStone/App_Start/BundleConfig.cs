@@ -24,7 +24,9 @@ namespace SteppingStone
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"));
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/stylesheet2.css"));
+           
         }
     }
 }

@@ -51,6 +51,20 @@ namespace SteppingStone.Services
             }
         }
 
+        public void AddContactUsMessage(ContactUsMessage contactusmessage)
+        {
+            ContactUsData contactusData = new ContactUsData();
+
+            try
+            {
+                contactusData.AddContactUsMessage(contactusmessage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void UpdateContactUs(ContactUs contactus)
         {
             ContactUsData contactusData = new ContactUsData();

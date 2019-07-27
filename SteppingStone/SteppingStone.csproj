@@ -179,6 +179,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactUsMessage.cs" />
     <Compile Include="Models\ContactUs.cs" />
     <Compile Include="Models\HowToInvolve.cs" />
     <Compile Include="Models\OurApproach.cs" />
@@ -208,13 +209,17 @@
     <Content Include="app\home\home.component.html" />
     <Content Include="app\project\project.component.html" />
     <Content Include="app\mission\mission.component.html" />
-    <Content Include="assets\steppingstone.css" />
-    <Content Include="assets\Style.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\steppingstone.css" />
+    <Content Include="Content\css\Style.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\stylesheet1.css" />
+    <Content Include="Content\css\StyleSheet2.css" />
+    <Content Include="Content\css\StyleSheet3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\footerbg.gif" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\stbanner.jpg" />
@@ -257,6 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\" />
     <Folder Include="DBContext\" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +290,7 @@
     <TypeScriptCompile Include="app\admin\howtoinvolve\howtoinvolve.admin.component.ts" />
     <TypeScriptCompile Include="app\howtoinvolve\howtoinvolve.component.ts" />
     <TypeScriptCompile Include="app\admin\ourapproach\ourapproach.admin.component.ts" />
+    <TypeScriptCompile Include="app\Model\contactusmessage.ts" />
     <TypeScriptCompile Include="app\Model\contactus.ts" />
     <TypeScriptCompile Include="app\Model\howtoinvolve.ts" />
     <TypeScriptCompile Include="app\Model\ourapproach.ts" />

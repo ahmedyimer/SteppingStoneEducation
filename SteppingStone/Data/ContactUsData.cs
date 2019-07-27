@@ -71,6 +71,30 @@ namespace SteppingStone.Data
             }
         }
 
+        public void AddContactUsMessage(ContactUsMessage value)
+        {
+            System.Data.SqlClient.SqlCommand cmdSQL = null;
+            System.Data.SqlClient.SqlConnection cnSQL = null;
+
+            string ConnString = System.Configuration.ConfigurationManager.ConnectionStrings["SteppingStoneDB"].ConnectionString;
+
+            try
+            {
+                cnSQL = new System.Data.SqlClient.SqlConnection(ConnString);
+                cnSQL.Open();
+                cmdSQL = new System.Data.SqlClient.SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.Text;
+
+                cmdSQL.CommandText = String.Format("INSERT INTO ContactUsMessage (FirstName, Lastname, Email, Message) VALUES ('{0}', '{1}', N'{2}', '{3}')", value.FirstName, value.LastName, value.Email, value.Message);
+                cmdSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void UpdateContactUs(ContactUs value)
         {
             System.Data.SqlClient.SqlCommand cmdSQL = null;

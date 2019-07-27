@@ -39,6 +39,6 @@ Global.BASE_CONTACTUS_ENDPOINT = 'api/ContactUs/GetContactUs';
 Global.BASE_ADD_CONTACTUS_ENDPOINT = 'api/ContactUs/AddContactUs';
 Global.BASE_UPDATE_CONTACTUS_ENDPOINT = 'api/ContactUs/UpdateContactUs';
 Global.BASE_DELETE_CONTACTUS_ENDPOINT = 'api/ContactUs/DeleteContactUs';
-Global.BASE_DELETE_CONTACTUS_ENDPOINT1 = 'api/ContactUs/DeleteContactUs1';
+Global.BASE_CONTACTUS_MESSAGE_ENDPOINT = 'api/ContactUs/AddContactUsMessage';
 exports.Global = Global;
 //# sourceMappingURL=global.js.map
