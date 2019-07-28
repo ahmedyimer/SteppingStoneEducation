@@ -22,7 +22,7 @@ export class HowToInvolveComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getHowToInvolveData();
+        //this.getHowToInvolveData();
     }
 
     getHowToInvolveData(): void {

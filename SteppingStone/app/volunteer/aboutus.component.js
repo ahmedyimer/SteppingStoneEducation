@@ -9,34 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var howtoinvolve_service_1 = require("../Service/howtoinvolve.service");
+var aboutus_service_1 = require("../Service/aboutus.service");
 var global_1 = require("../Shared/global");
-var HowToInvolveComponent = (function () {
-    function HowToInvolveComponent(howtoinvolveService) {
-        this.howtoinvolveService = howtoinvolveService;
-        this.pageTitle = 'How To Involve';
+var AboutUsComponent = (function () {
+    function AboutUsComponent(aboutusService) {
+        this.aboutusService = aboutusService;
+        this.pageTitle = 'Welcome to Stepping Stones Education Foundation';
         this.indLoading = false;
     }
-    HowToInvolveComponent.prototype.ngOnInit = function () {
-        //this.getHowToInvolveData();
+    AboutUsComponent.prototype.ngOnInit = function () {
+        this.getAboutUsData();
     };
-    HowToInvolveComponent.prototype.getHowToInvolveData = function () {
+    AboutUsComponent.prototype.getAboutUsData = function () {
         var _this = this;
-        this.howtoinvolveService.getHowToInvolve(global_1.Global.BASE_HOWTOINVOLVE_ENDPOINT)
+        this.aboutusService.getAboutUs(global_1.Global.BASE_ABOUTUS_ENDPOINT)
             .subscribe(function (data) {
             console.log(JSON.stringify(data));
-            _this.howtoinvolve = data;
+            _this.aboutus = data;
         }, function (error) { return _this.msg = error; });
     };
-    return HowToInvolveComponent;
+    return AboutUsComponent;
 }());
-HowToInvolveComponent = __decorate([
+AboutUsComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        //selector: 'howtoinvolve',
-        templateUrl: './howtoinvolve.component.html'
+        //selector: 'aboutus',
+        templateUrl: './aboutus.component.html'
     }),
-    __metadata("design:paramtypes", [howtoinvolve_service_1.HowToInvolveService])
-], HowToInvolveComponent);
-exports.HowToInvolveComponent = HowToInvolveComponent;
-//# sourceMappingURL=howtoinvolve.component.js.map
+    __metadata("design:paramtypes", [aboutus_service_1.AboutUsService])
+], AboutUsComponent);
+exports.AboutUsComponent = AboutUsComponent;
+//# sourceMappingURL=aboutus.component.js.map

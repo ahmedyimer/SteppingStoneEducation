@@ -8,6 +8,8 @@ var project_component_1 = require("./project/project.component");
 var ourapproach_component_1 = require("./ourapproach/ourapproach.component");
 var howtoinvolve_component_1 = require("./howtoinvolve/howtoinvolve.component");
 var contactus_component_1 = require("./contactus/contactus.component");
+var sponsorstudent_component_1 = require("./sponsorstudent/sponsorstudent.component");
+var volunteer_component_1 = require("./volunteer/volunteer.component");
 //Admin
 var aboutus_admin_component_1 = require("./admin/aboutus/aboutus.admin.component");
 var mission_admin_component_1 = require("./admin/mission/mission.admin.component");
@@ -24,6 +26,8 @@ var appRoutes = [
     { path: 'ourapproach', component: ourapproach_component_1.OurApproachComponent },
     { path: 'howtoinvolve', component: howtoinvolve_component_1.HowToInvolveComponent },
     { path: 'contactus', component: contactus_component_1.ContactUsComponent },
+    { path: 'sponsorstudent', component: sponsorstudent_component_1.SponsorStudentComponent },
+    { path: 'volunteer', component: volunteer_component_1.VolunteerComponent },
     { path: 'aboutusadmin', component: aboutus_admin_component_1.AboutUsAdminComponent },
     { path: 'missionadmin', component: mission_admin_component_1.MissionAdminComponent },
     { path: 'projectadmin', component: project_admin_component_1.ProjectAdminComponent },

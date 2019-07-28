@@ -1,0 +1,93 @@
+﻿<!--  jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        var options = {
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        };
+        date_input.datepicker(options);
+    })
+</script>
+
+<div style="padding-left:25px;">
+
+    <div class="card">
+
+        <div class="pagetitle">
+            {{pageTitle}}
+        </div>
+        <div>
+            Know that you would like to volunteer with us, but not quite sure which is the best option for you? You can contact us here. We are also reachable by email volunteering@linkethiopia.org
+        </div>
+    </div>
+
+    <div>
+        &nbsp;
+    </div>
+    <div style="padding-left:25px;">
+        <div>{{msg}}</div>
+        <div>
+            <form novalidate (ngSubmit)="onSubmit(volunteerFrm)" [formGroup]="volunteerFrm">
+                <div class="form-group">
+                    <div>
+                        <span>First Name*</span>
+                        <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName">
+                    </div>
+                    <div>
+                        <span>Last Name*</span>
+                        <input type="text" class="form-control" placeholder="Last Name" formControlName="LastName">
+                    </div>
+                    <div>
+                        <span>Start Date</span>
+                        <!--<input type="text" class="form-control" placeholder="star tdate" formcontrolname="startdate">-->
+                        <input type='text' class="form-control" placeholder="Start Date" formControlName="StartDate" />
+                    </div>
+                    <div>
+                        <span>End Date</span>
+                        <input type="text" class="form-control" placeholder="End Date" formControlName="EndDate">
+                    </div>
+                    <!--<div class="form-group">
+                        <label class="control-label" for="date">Date</label>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                    </div>-->
+
+                    <div>
+                        <span>Email Address*</span>
+                        <input type="text" class="form-control" placeholder="Email Address" formControlName="Email">
+                    </div>
+                    <div>
+                        <span>Country*</span>
+                        <input type="text" class="form-control" placeholder="Country" formControlName="Country">
+                    </div>
+                    <div>
+                        <span>Type of Placement*</span>
+                        <input type="text" class="form-control" placeholder="Type of Placement" formControlName="TypeOfPlacement">
+                    </div>
+                    <div>
+                        <span>Tell us a bit about yourself and why you are interested in volunteering</span>
+                        <textarea rows="5" class="form-control" placeholder="Tell us a bit about yourself" formControlName="TellUs"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="volunteerFrm.invalid" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

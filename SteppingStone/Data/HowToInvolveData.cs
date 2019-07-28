@@ -62,7 +62,7 @@ namespace SteppingStone.Data
                 cmdSQL.Connection = cnSQL;
                 cmdSQL.CommandType = CommandType.Text;
 
-                cmdSQL.CommandText = String.Format("INSERT INTO HowToInvolve (Title, Description) VALUES ('{0}', '{1}')", value.Title, value.Description);
+                cmdSQL.CommandText = String.Format("INSERT INTO HowToInvolve (Title, Description) VALUES ('{0}', N'{1}')", value.Title, value.Description);
                 cmdSQL.ExecuteNonQuery();
             }
             catch (Exception ex)

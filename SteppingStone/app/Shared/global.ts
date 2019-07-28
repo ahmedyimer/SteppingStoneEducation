@@ -41,4 +41,10 @@
     public static BASE_DELETE_CONTACTUS_ENDPOINT = 'api/ContactUs/DeleteContactUs';
     public static BASE_CONTACTUS_MESSAGE_ENDPOINT = 'api/ContactUs/AddContactUsMessage';
 
+    //Sponsor a student
+    public static BASE_SPONSORSTUDENT_MESSAGE_ENDPOINT = 'api/SponsorStudent/AddSponsorStudent';
+
+    //Volunteer
+    public static BASE_VOLUNTEER_MESSAGE_ENDPOINT = 'api/Volunteer/AddVolunteer';
+
 }

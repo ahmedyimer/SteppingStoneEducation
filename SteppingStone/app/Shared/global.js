@@ -40,5 +40,9 @@ Global.BASE_ADD_CONTACTUS_ENDPOINT = 'api/ContactUs/AddContactUs';
 Global.BASE_UPDATE_CONTACTUS_ENDPOINT = 'api/ContactUs/UpdateContactUs';
 Global.BASE_DELETE_CONTACTUS_ENDPOINT = 'api/ContactUs/DeleteContactUs';
 Global.BASE_CONTACTUS_MESSAGE_ENDPOINT = 'api/ContactUs/AddContactUsMessage';
+//Sponsor a student
+Global.BASE_SPONSORSTUDENT_MESSAGE_ENDPOINT = 'api/SponsorStudent/AddSponsorStudent';
+//Volunteer
+Global.BASE_VOLUNTEER_MESSAGE_ENDPOINT = 'api/Volunteer/AddVolunteer';
 exports.Global = Global;
 //# sourceMappingURL=global.js.map

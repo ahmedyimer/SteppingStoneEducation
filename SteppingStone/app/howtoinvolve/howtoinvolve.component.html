@@ -1,11 +1,22 @@
 ﻿<div style="padding-left:25px;">
     <div class="card">
         <div class="card-body">
-            <div class="container-fluid">
+            <!--<div class="container-fluid">
                 <div *ngFor="let hti of howtoinvolve">
                     <div class="pagetitle">{{hti.Title}}</div>
                     <div [innerHtml]="hti.Description"></div>
                 </div>
+            </div>-->
+            <div class="pagetitle">
+                {{pageTitle}}
+            </div>
+            <div>
+                How you can involve
+                <ul>
+                    <li>Donate online</li>
+                    <li><a [routerLink]="['../sponsorstudent']">Sponsor a student</a></li>
+                    <li><a [routerLink]="['../volunteer']">Volunteer for our summer enrichment program</a></li>
+                </ul>
             </div>
         </div>
     </div>

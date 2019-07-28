@@ -9,6 +9,8 @@ import { ProjectComponent } from './project/project.component';
 import { OurApproachComponent } from './ourapproach/ourapproach.component';
 import { HowToInvolveComponent } from './howtoinvolve/howtoinvolve.component';
 import { ContactUsComponent } from './contactus/contactus.component';
+import { SponsorStudentComponent } from './sponsorstudent/sponsorstudent.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 
 //Admin
 import { AboutUsAdminComponent } from './admin/aboutus/aboutus.admin.component';
@@ -27,6 +29,8 @@ const appRoutes: Routes = [
     { path: 'ourapproach', component: OurApproachComponent },
     { path: 'howtoinvolve', component: HowToInvolveComponent },
     { path: 'contactus', component: ContactUsComponent },
+    { path: 'sponsorstudent', component: SponsorStudentComponent },
+    { path: 'volunteer', component: VolunteerComponent },
 
     { path: 'aboutusadmin', component: AboutUsAdminComponent },
     { path: 'missionadmin', component: MissionAdminComponent },

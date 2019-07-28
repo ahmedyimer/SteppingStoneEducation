@@ -39,11 +39,19 @@ import { ContactUsComponent } from './contactus/contactus.component';
 import { ContactUsAdminComponent } from './admin/contactus/contactus.admin.component';
 import { ContactUsService } from './Service/contactus.service';
 
+//Sponsor student
+import { SponsorStudentComponent } from './sponsorstudent/sponsorstudent.component';
+import { SponsorStudentService } from './Service/sponsorstudent.service';
+
+//Volunteer
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { VolunteerService } from './Service/volunteer.service';
+
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, HowToInvolveComponent, ContactUsComponent,
+    declarations: [AppComponent, HomeComponent, AboutUsComponent, AboutUsAdminComponent, MissionComponent, ProjectComponent, HowToInvolveComponent, ContactUsComponent, SponsorStudentComponent, VolunteerComponent,
         OurApproachComponent, MissionAdminComponent, ProjectAdminComponent, OurApproachAdminComponent, HowToInvolveAdminComponent, ContactUsAdminComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService, HowToInvolveService, ContactUsService],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, AboutUsService, MissionService, ProjectService, OurApproachService, HowToInvolveService, ContactUsService, SponsorStudentService, VolunteerService],
     bootstrap: [AppComponent]
 
 })

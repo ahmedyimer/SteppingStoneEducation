@@ -162,6 +162,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\VolunteerController.cs" />
+    <Compile Include="Controllers\SponsorStudentController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HowToInvolveController.cs" />
     <Compile Include="Controllers\OurApproachController.cs" />
@@ -170,6 +172,8 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\BaseAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\VolunteerData.cs" />
+    <Compile Include="Data\SponsorStudentData.cs" />
     <Compile Include="Data\ContactUsData.cs" />
     <Compile Include="Data\HowToInvolveData.cs" />
     <Compile Include="Data\OurApproachData.cs" />
@@ -179,6 +183,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Models\SponsorStudent.cs" />
     <Compile Include="Models\ContactUsMessage.cs" />
     <Compile Include="Models\ContactUs.cs" />
     <Compile Include="Models\HowToInvolve.cs" />
@@ -187,6 +193,8 @@
     <Compile Include="Models\Mission.cs" />
     <Compile Include="Models\AboutUs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\VolunteerService.cs" />
+    <Compile Include="Services\SponsorStudentService.cs" />
     <Compile Include="Services\ContactUsService.cs" />
     <Compile Include="Services\HowToInvolveService.cs" />
     <Compile Include="Services\OurApproachService.cs" />
@@ -196,6 +204,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\admin\contactus\contactus.admin.component.html" />
+    <Content Include="app\volunteer\volunteer.component.html" />
+    <Content Include="app\sponsorstudent\sponsorstudent.component.html" />
     <Content Include="app\contactus\contactus.component.html" />
     <Content Include="app\admin\howtoinvolve\howtoinvolve.admin.component.html" />
     <Content Include="app\howtoinvolve\howtoinvolve.component.html" />
@@ -286,6 +296,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\admin\contactus\contactus.admin.component.ts" />
+    <TypeScriptCompile Include="app\Model\volunteer.ts" />
+    <TypeScriptCompile Include="app\Model\sponsorstudent.ts" />
+    <TypeScriptCompile Include="app\Service\volunteer.service.ts" />
+    <TypeScriptCompile Include="app\Service\sponsorstudent.service.ts" />
+    <TypeScriptCompile Include="app\volunteer\volunteer.component.ts" />
+    <TypeScriptCompile Include="app\sponsorstudent\sponsorstudent.component.ts" />
     <TypeScriptCompile Include="app\contactus\contactus.component.ts" />
     <TypeScriptCompile Include="app\admin\howtoinvolve\howtoinvolve.admin.component.ts" />
     <TypeScriptCompile Include="app\howtoinvolve\howtoinvolve.component.ts" />
