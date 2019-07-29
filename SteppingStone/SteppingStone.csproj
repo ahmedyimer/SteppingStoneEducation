@@ -229,12 +229,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\Donate Online.jpg" />
     <Content Include="images\footerbg.gif" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo.png" />
+    <Content Include="images\Our Approach.jpg" />
+    <Content Include="images\Sponsor student.jpg" />
     <Content Include="images\stbanner.jpg" />
     <Content Include="images\steppingstones.jpg" />
     <Content Include="images\under construction.jpg" />
+    <Content Include="images\volunteer.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
