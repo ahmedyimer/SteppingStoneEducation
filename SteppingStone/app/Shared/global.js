@@ -44,5 +44,8 @@ Global.BASE_CONTACTUS_MESSAGE_ENDPOINT = 'api/ContactUs/AddContactUsMessage';
 Global.BASE_SPONSORSTUDENT_MESSAGE_ENDPOINT = 'api/SponsorStudent/AddSponsorStudent';
 //Volunteer
 Global.BASE_VOLUNTEER_MESSAGE_ENDPOINT = 'api/Volunteer/AddVolunteer';
+//Login
+Global.BASE_USER_ENDPOINT = 'api/User/GetUser';
+Global.IsAdmin = false;
 exports.Global = Global;
 //# sourceMappingURL=global.js.map

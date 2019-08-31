@@ -36,23 +36,54 @@
                 <div class='container-fluid'>
                     <ul class='nav navbar-nav'>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                        <li><a [routerLink]="['home']">Home</a></li>
-                        <li><a [routerLink]="['aboutus']">About Us</a></li>
-                        <li><a [routerLink]="['mission']">Mission</a></li>
-                        <li><a [routerLink]="['project']">Projects</a></li>
-                        <li><a [routerLink]="['ourapproach']">Our Approach</a></li>
-                        <li><a [routerLink]="['howtoinvolve']">How To Involve</a></li>
-                        <li><a [routerLink]="['contactus']">Contact Us</a></li>
 
-                        <!--<li><a [routerLink]="['aboutusadmin']">About Us Admin</a></li>
-    <li><a [routerLink]="['missionadmin']">Mission Admin</a></li>
-    <li><a [routerLink]="['projectadmin']">Project Admin</a></li>
-    <li><a [routerLink]="['ourapproachadmin']">Our Approach Admin</a></li>
-    <li><a [routerLink]="['howtoinvolveadmin']">How To Involve Admin</a></li>
-    <li><a [routerLink]="['contactusadmin']">Contact Us Admin</a></li>-->
+
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['home']">Home</a></li>
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['aboutus']">About Us</a></li>
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['mission']">Mission</a></li>
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['project']">Projects</a></li>
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['ourapproach']">Our Approach</a></li>
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['howtoinvolve']">How To Involve</a></li>
+                        <li *ngIf="!IsAdmin"><a [routerLink]="['contactus']">Contact Us</a></li>
+                        <li *ngIf="!IsAdmin"><a href="#"><span (click)="Userlogin()">Login</span></a></li>
+
+                        <li *ngIf="!IsAdmin"></li>
+
+
+                        <!--<li><a [routerLink]="['user']">Login</a></li>-->
+                        <!--<li>
+
+        <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="Userlogin()">Login</button></div>
+    </li>-->
+
+
+                        <li *ngIf="IsAdmin"><a [routerLink]="['aboutusadmin']">About Us</a></li>
+                        <li *ngIf="IsAdmin"><a [routerLink]="['missionadmin']">Mission</a></li>
+                        <li *ngIf="IsAdmin"><a [routerLink]="['projectadmin']">Project</a></li>
+                        <li *ngIf="IsAdmin"><a [routerLink]="['ourapproachadmin']">Our Approach</a></li>
+                        <li *ngIf="IsAdmin"><a [routerLink]="['howtoinvolveadmin']">How To Involve</a></li>
+                        <li *ngIf="IsAdmin"><a [routerLink]="['contactusadmin']">Contact Us</a></li>
+                        <li *ngIf="IsAdmin"><a href="#"><span (click)="logout()">Logout</span></a></li>
                     </ul>
                 </div>
             </nav>
+            <!--{{IsAdmin}}
+            {{IsAdmin1}}-->
+
+            <!--<nav class='navbar navbar-inverse' *ngIf="IsAdmin">
+                <div class='container-fluid'>
+                    <ul class='nav navbar-nav'>
+                        <li><a [routerLink]="['user']">Logout</a></li>
+                        <li><a [routerLink]="['aboutusadmin']">About Us</a></li>
+                        <li><a [routerLink]="['missionadmin']">Mission</a></li>
+                        <li><a [routerLink]="['projectadmin']">Project</a></li>
+                        <li><a [routerLink]="['ourapproachadmin']">Our Approach</a></li>
+                        <li><a [routerLink]="['howtoinvolveadmin']">How To Involve</a></li>
+                        <li><a [routerLink]="['contactusadmin']">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>-->
+
             <div class='container' style="min-height:500px;">
                 <router-outlet></router-outlet>
             </div>
@@ -60,10 +91,54 @@
     </div>
 
 
+
+    <modal #modal>
+        <form novalidate (ngSubmit)="onSubmit(userFrm)" [formGroup]="userFrm">
+
+            <modal-header [show-close]="true">
+                <h4 class="modal-title">Adminstration Login</h4>
+                {{msg}}
+            </modal-header>
+
+            <modal-body>
+                <modal-body>
+                    <div class="form-group">
+                        <div>
+                            <span>User Name*</span>
+                            <input type="text" class="form-control" placeholder="User Name" formControlName="UserName">
+                        </div>
+                        <div>
+                            <span>Password*</span>
+                            <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+                        </div>
+                    </div>
+                </modal-body>
+
+
+                <modal-footer>
+                    <div>
+                        <button type="submit" [disabled]="userFrm.invalid" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
+                    </div>
+                </modal-footer>
+</modal-body>
+        </form>
+    </modal>
+
+
+
     <div class="footer">
         <br /> <br />&#9400;2019 Steppingstoneef.org <br />
         Developed by: Ahmed Yimer <br />(641)-814-6134
     </div>
+
+
+
+
+
+
+
+
 
 
 

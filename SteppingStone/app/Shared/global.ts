@@ -47,4 +47,9 @@
     //Volunteer
     public static BASE_VOLUNTEER_MESSAGE_ENDPOINT = 'api/Volunteer/AddVolunteer';
 
+    //Login
+    public static BASE_USER_ENDPOINT = 'api/User/GetUser';
+    public static IsAdmin = false;
+
+
 }

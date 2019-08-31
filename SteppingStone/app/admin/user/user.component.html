@@ -1,0 +1,44 @@
+﻿<div style="padding-left:25px;">
+    
+    <div class="card">
+
+        <div class="pagetitle">
+            {{pageTitle}}
+        </div>
+        <div>
+           To access Administration site, please enter username and password. 
+        </div>
+    </div>
+
+    <div>
+        &nbsp;
+    </div>
+    <div style="padding-left:25px;">
+        <div>{{msg}}</div>
+        <div>
+            <form novalidate (ngSubmit)="onSubmit(userFrm)" [formGroup]="userFrm">
+               
+                
+                
+                <div class="form-group">
+                    
+                    <div>
+                        <span>User Name*</span>
+                        <input type="text" class="form-control" placeholder="User Name" formControlName="UserName">
+                    </div>
+                    <div>
+                        <span>Password*</span>
+                        <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+                    </div>
+                   
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="userFrm.invalid" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

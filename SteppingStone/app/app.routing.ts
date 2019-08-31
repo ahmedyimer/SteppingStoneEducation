@@ -19,6 +19,8 @@ import { ProjectAdminComponent } from './admin/project/project.admin.component';
 import { OurApproachAdminComponent } from './admin/ourapproach/ourapproach.admin.component';
 import { HowToInvolveAdminComponent } from './admin/howtoinvolve/howtoinvolve.admin.component';
 import { ContactUsAdminComponent } from './admin/contactus/contactus.admin.component';
+import { UserComponent } from './admin/user/user.component';
+
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     { path: 'projectadmin', component: ProjectAdminComponent },
     { path: 'ourapproachadmin', component: OurApproachAdminComponent },
     { path: 'howtoinvolveadmin', component: HowToInvolveAdminComponent },
-    { path: 'contactusadmin', component: ContactUsAdminComponent }
+    { path: 'contactusadmin', component: ContactUsAdminComponent },
+    { path: 'user', component: UserComponent }
 ];
 
 export const routing: ModuleWithProviders =

@@ -9,76 +9,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var global_1 = require("./Shared/global");
+var user_service_1 = require("../../Service/user.service");
+var global_1 = require("../../Shared/global");
 var forms_1 = require("@angular/forms");
-var user_service_1 = require("./Service/user.service");
 var router_1 = require("@angular/router");
-var enum_1 = require("./Shared/enum");
-var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
-var AppComponent = (function () {
-    function AppComponent(fb, userService, router) {
+var UserComponent = (function () {
+    function UserComponent(fb, userService, router) {
         this.fb = fb;
         this.userService = userService;
         this.router = router;
         this.pageTitle = 'ADMININSTRATION Login';
-        this.IsAdmin1 = global_1.Global.IsAdmin;
         this.indLoading = false;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    UserComponent.prototype.ngOnInit = function () {
         this.userFrm = this.fb.group({
             Id: [''],
             UserName: ['', forms_1.Validators.required],
             Password: ['', forms_1.Validators.required]
         });
     };
-    AppComponent.prototype.Userlogin = function () {
-        this.dbops = enum_1.DBOperation.create;
-        this.SetControlsState(true);
-        this.modalTitle = "Add New About Us";
-        this.modalBtnTitle = "Add";
-        this.userFrm.reset();
-        this.modal.open();
-    };
-    AppComponent.prototype.logout = function () {
-        this.IsAdmin = false;
-        this.router.navigate(["/home"]);
-    };
-    AppComponent.prototype.onSubmit = function (formData) {
+    UserComponent.prototype.onSubmit = function (formData) {
         var _this = this;
         debugger;
         this.userService.GetUser(global_1.Global.BASE_USER_ENDPOINT, formData._value).subscribe(function (data) {
             _this.users = data;
             if (_this.users.length >= 1) {
                 _this.msg = "Login Successful.";
+                global_1.Global.IsAdmin = true;
                 _this.IsAdmin = true;
-                _this.modal.dismiss();
-                //Global.IsAdmin = true;
-                _this.router.navigate(["/aboutusadmin"]);
+                _this.router.navigate(["/home"]);
             }
             else {
                 _this.msg = "Invalid Username or Password.";
+                global_1.Global.IsAdmin = false;
                 _this.IsAdmin = false;
             }
         }, function (error) {
             _this.msg = error;
         });
     };
-    AppComponent.prototype.SetControlsState = function (isEnable) {
-        isEnable ? this.userFrm.enable() : this.userFrm.disable();
-    };
-    return AppComponent;
+    return UserComponent;
 }());
-__decorate([
-    core_1.ViewChild('modal'),
-    __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
-], AppComponent.prototype, "modal", void 0);
-AppComponent = __decorate([
+UserComponent = __decorate([
     core_1.Component({
-        selector: "ss-app",
         moduleId: module.id,
-        templateUrl: 'app.component.html'
+        //selector: 'user',
+        templateUrl: './user.component.html'
     }),
     __metadata("design:paramtypes", [forms_1.FormBuilder, user_service_1.UserService, router_1.Router])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], UserComponent);
+exports.UserComponent = UserComponent;
+//# sourceMappingURL=user.component.js.map

@@ -17,34 +17,29 @@ require("rxjs/add/operator/catch");
 require("rxjs/Rx");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/toPromise");
-var http_2 = require("@angular/http");
-var UserService = (function () {
-    function UserService(http) {
+var LoginService = (function () {
+    function LoginService(http) {
         this.http = http;
     }
-    UserService.prototype.GetUser = function (url, model) {
+    LoginService.prototype.GetUser = function (url, model) {
         debugger;
-        var myHeaders = new http_1.Headers();
-        myHeaders.append('Content-Type', 'application/json');
-        var myParams = new http_2.URLSearchParams();
-        myParams.append('username', model.UserName);
-        myParams.append('password', model.Password);
-        var options = new http_1.RequestOptions({ headers: myHeaders, params: myParams });
-        return this.http.get(url, options)
-            .map(function (res) { return res.json(); })
-            .do(function (data) { return console.log(JSON.stringify(data)); })
+        var body = JSON.stringify(model);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(url, body, options)
+            .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    UserService.prototype.handleError = function (error) {
+    LoginService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
-    return UserService;
+    return LoginService;
 }());
-UserService = __decorate([
+LoginService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], UserService);
-exports.UserService = UserService;
+], LoginService);
+exports.LoginService = LoginService;
 ;
-//# sourceMappingURL=user.service.js.map
+//# sourceMappingURL=login.service.js.map

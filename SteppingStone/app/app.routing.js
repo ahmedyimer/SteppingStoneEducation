@@ -17,6 +17,7 @@ var project_admin_component_1 = require("./admin/project/project.admin.component
 var ourapproach_admin_component_1 = require("./admin/ourapproach/ourapproach.admin.component");
 var howtoinvolve_admin_component_1 = require("./admin/howtoinvolve/howtoinvolve.admin.component");
 var contactus_admin_component_1 = require("./admin/contactus/contactus.admin.component");
+var user_component_1 = require("./admin/user/user.component");
 var appRoutes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
@@ -33,7 +34,8 @@ var appRoutes = [
     { path: 'projectadmin', component: project_admin_component_1.ProjectAdminComponent },
     { path: 'ourapproachadmin', component: ourapproach_admin_component_1.OurApproachAdminComponent },
     { path: 'howtoinvolveadmin', component: howtoinvolve_admin_component_1.HowToInvolveAdminComponent },
-    { path: 'contactusadmin', component: contactus_admin_component_1.ContactUsAdminComponent }
+    { path: 'contactusadmin', component: contactus_admin_component_1.ContactUsAdminComponent },
+    { path: 'user', component: user_component_1.UserComponent }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

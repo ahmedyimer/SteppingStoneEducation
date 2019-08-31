@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Net.Mail;
+using System.Net;
 
 namespace SteppingStone.Data
 {
@@ -64,6 +66,33 @@ namespace SteppingStone.Data
 
                 cmdSQL.CommandText = String.Format("INSERT INTO AboutUs (Title, Description) VALUES ('{0}', '{1}')", value.Title, value.Description);
                 cmdSQL.ExecuteNonQuery();
+
+                try
+                {
+                 
+                    MailMessage mail = new MailMessage();
+                    //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                    mail.From = new MailAddress("postmaster@steppingstoneef.org");
+                    mail.To.Add("ahmedaragaw@yahoo.com");
+                    mail.Subject = "Test Mail";
+                    mail.Body = "This is for testing SMTP mail from Stepping Stone.org";
+
+                    //SmtpClient smtp = new SmtpClient("m0#.internetmailserver.net");
+                    SmtpClient smtp = new SmtpClient("m01.internetmailserver.net");
+                    
+                    NetworkCredential Credentials = new NetworkCredential("postmaster@steppingstoneef.org", "ssef@2020");
+                    smtp.Credentials = Credentials;
+                    //lblMessage.Text = "Mail Sent";
+
+                    smtp.Send(mail);
+                  
+                }
+                catch (Exception ex)
+                {
+
+                }
+
             }
             catch (Exception ex)
             {
