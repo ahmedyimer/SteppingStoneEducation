@@ -4,12 +4,15 @@
             {{pageTitle}}
         </div>-->
         <div class="card-body">
-            <div class="container-fluid">
+            <div class="container-fluid" style="width:50%; float:left;">
                 <div *ngFor="let mission of missions">
                     <div class="pagetitle">{{mission.Title}}</div>
                     <div [innerHtml]="mission.Description"></div>
                     <div style="line-height:normal">&nbsp;</div>
                 </div>
+            </div>
+            <div style="width:50%; float:left; clear:right">
+                <img src="../../images/ourmission.jpg" />
             </div>
         </div>
     </div>

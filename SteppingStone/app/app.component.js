@@ -41,6 +41,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.logout = function () {
         this.IsAdmin = false;
+        this.msg = "";
         this.router.navigate(["/home"]);
     };
     AppComponent.prototype.onSubmit = function (formData) {
